@@ -32,7 +32,7 @@ NSMutableDictionary* keys;
 }
 
 -(void)removeKey:(NSString*)name{
-    
+    [keys removeObjectForKey:name];
 }
 
 -(NSDictionary*)getAllAuthCodes{

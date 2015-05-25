@@ -11,9 +11,10 @@
 		22221C581ADE0E730013E482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22221C571ADE0E730013E482 /* main.m */; };
 		22221C5B1ADE0E730013E482 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22221C5A1ADE0E730013E482 /* ViewController.m */; };
 		22221C5D1ADE0E730013E482 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22221C5C1ADE0E730013E482 /* Images.xcassets */; };
-		22221C601ADE0E730013E482 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22221C5E1ADE0E730013E482 /* Main.storyboard */; };
 		22221C6C1ADE0E730013E482 /* AuthenticatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22221C6B1ADE0E730013E482 /* AuthenticatorTests.m */; };
+		2243E3D71B0974E300CB9630 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2243E3D61B0974E300CB9630 /* icon.png */; };
 		225133571AEDD1B200144716 /* KeyStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 225133561AEDD1B200144716 /* KeyStorage.m */; };
+		22EEB45A1B13D9CF00DB23B2 /* AddKeyWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +36,13 @@
 		22221C591ADE0E730013E482 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		22221C5A1ADE0E730013E482 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		22221C5C1ADE0E730013E482 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		22221C5F1ADE0E730013E482 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22221C651ADE0E730013E482 /* AuthenticatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthenticatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22221C6A1ADE0E730013E482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22221C6B1ADE0E730013E482 /* AuthenticatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthenticatorTests.m; sourceTree = "<group>"; };
+		2243E3D61B0974E300CB9630 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		225133551AEDD1B200144716 /* KeyStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyStorage.h; sourceTree = "<group>"; };
 		225133561AEDD1B200144716 /* KeyStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyStorage.m; sourceTree = "<group>"; };
+		22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddKeyWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,12 +84,13 @@
 		22221C511ADE0E730013E482 /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
+				2243E3D51B0974DA00CB9630 /* Assets */,
 				22221C541ADE0E730013E482 /* AppDelegate.h */,
 				22221C551ADE0E730013E482 /* AppDelegate.m */,
 				22221C591ADE0E730013E482 /* ViewController.h */,
 				22221C5A1ADE0E730013E482 /* ViewController.m */,
 				22221C5C1ADE0E730013E482 /* Images.xcassets */,
-				22221C5E1ADE0E730013E482 /* Main.storyboard */,
+				22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */,
 				22221C521ADE0E730013E482 /* Supporting Files */,
 			);
 			path = Authenticator;
@@ -119,6 +122,14 @@
 				22221C6A1ADE0E730013E482 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2243E3D51B0974DA00CB9630 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2243E3D61B0974E300CB9630 /* icon.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +213,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22221C5D1ADE0E730013E482 /* Images.xcassets in Resources */,
-				22221C601ADE0E730013E482 /* Main.storyboard in Resources */,
+				2243E3D71B0974E300CB9630 /* icon.png in Resources */,
+				22EEB45A1B13D9CF00DB23B2 /* AddKeyWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,17 +256,6 @@
 			targetProxy = 22221C661ADE0E730013E482 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		22221C5E1ADE0E730013E482 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				22221C5F1ADE0E730013E482 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		22221C6D1ADE0E730013E482 /* Debug */ = {

@@ -4,81 +4,75 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/AddKeyWindow.nib</key>
+		<data>
+		KQKYzfHxkC7Dv27wJnC8/X/Lv34=
+		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aafLzhbvFeyAZFt4q2GdIvn42mQ=
+			WQRmGHzdWxV2Tq0bF11AM53LfXs=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2sKgmRgaiPZakIV7KgGM7bG0LSA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wA+kQEW5OUX2v5J0evv+R39080Y=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			SBz1jT2+f2FTHEagGXvDH6A6+po=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<key>Resources/Main.storyboardc/Ff7-PQ-PHw-view-jDH-Tc-eNE.nib</key>
+		<data>
+		YMNw9BQsDqLNS0gjC/s+Xa8XvIE=
+		</data>
+		<key>Resources/Main.storyboardc/Info.plist</key>
+		<data>
+		dXmopyfRcqalIv+WkmX7Jgl0g68=
+		</data>
+		<key>Resources/Main.storyboardc/MainMenu.nib</key>
+		<data>
+		1tvvyknuCkCh78/Z4dRbCGC3ypU=
+		</data>
+		<key>Resources/Main.storyboardc/addKeyWindowController.nib</key>
+		<data>
+		9dIvBdgQ8cMJDS7X3I3JhVs3C7A=
+		</data>
+		<key>Resources/icon.png</key>
+		<data>
+		3EzJzegwJr++0xfYRIv4vxok04Q=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Resources/AddKeyWindow.nib</key>
+		<data>
+		KQKYzfHxkC7Dv27wJnC8/X/Lv34=
+		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aafLzhbvFeyAZFt4q2GdIvn42mQ=
+			WQRmGHzdWxV2Tq0bF11AM53LfXs=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2sKgmRgaiPZakIV7KgGM7bG0LSA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wA+kQEW5OUX2v5J0evv+R39080Y=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			SBz1jT2+f2FTHEagGXvDH6A6+po=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<key>Resources/Main.storyboardc/Ff7-PQ-PHw-view-jDH-Tc-eNE.nib</key>
+		<data>
+		YMNw9BQsDqLNS0gjC/s+Xa8XvIE=
+		</data>
+		<key>Resources/Main.storyboardc/Info.plist</key>
+		<data>
+		dXmopyfRcqalIv+WkmX7Jgl0g68=
+		</data>
+		<key>Resources/Main.storyboardc/MainMenu.nib</key>
+		<data>
+		1tvvyknuCkCh78/Z4dRbCGC3ypU=
+		</data>
+		<key>Resources/Main.storyboardc/addKeyWindowController.nib</key>
+		<data>
+		9dIvBdgQ8cMJDS7X3I3JhVs3C7A=
+		</data>
+		<key>Resources/icon.png</key>
+		<data>
+		3EzJzegwJr++0xfYRIv4vxok04Q=
+		</data>
 	</dict>
 	<key>rules</key>
 	<dict>

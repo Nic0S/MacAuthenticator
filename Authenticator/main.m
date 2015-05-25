@@ -10,14 +10,16 @@
 #import "KeyStorage.h"
 
 int main(int argc, const char * argv[]) {
-    KeyStorage* keyStore = [KeyStorage new];
+//    KeyStorage* keyStore = [KeyStorage new];
+//    
+//    [keyStore addKey:@"Blockchain" key:@"W44UWPQ5S42GZN4DHG2FO6A" ];
+//    
+//    NSDictionary* codes = [keyStore getAllAuthCodes];
+//    NSLog(@"num codes: %lu", (unsigned long)[codes count]);
+//    
+//    for(id key in codes){
+//        NSLog(@"%@: %@", key, codes[key]);
+//    }
     
-    [keyStore addKey:@"Blockchain" key:@"W44UWPQ5S42GZN4DHG2FO6A" ];
-    
-    NSDictionary* codes = [keyStore getAllAuthCodes];
-    NSLog(@"num codes: %lu", (unsigned long)[codes count]);
-    
-    for(id key in codes){
-        NSLog(@"%@: %@", key, codes[key]);
-    }
+    return NSApplicationMain(argc, argv);
 }
