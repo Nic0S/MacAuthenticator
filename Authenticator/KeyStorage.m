@@ -51,7 +51,8 @@
     for(id name in _keys){
         NSTask *task = [[NSTask alloc] init];
         [task setLaunchPath:@"/bin/bash"];
-        [task setArguments:@[@"-c", @"/usr/local/Cellar/oath-toolkit/2.4.1/bin/oathtool --totp -b W44UWPQ5S42GZN4DHG2FO6A" ]];
+        NSString *arg = [NSString stringWithFormat:@"/usr/local/Cellar/oath-toolkit/2.4.1/bin/oathtool --totp -b %@", _keys[name]];
+        [task setArguments:@[@"-c", arg]];
         NSLog(@"Command: %@", task.arguments);
         task.standardOutput = pipe;
         

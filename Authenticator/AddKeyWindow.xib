@@ -10,29 +10,29 @@
         <window title="Add Key" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="345" height="146"/>
+            <rect key="contentRect" x="196" y="240" width="345" height="128"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="-1" width="345" height="146"/>
+                <rect key="frame" x="0.0" y="0.0" width="345" height="128"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6hJ-zt-FUf">
-                        <rect key="frame" x="89" y="106" width="166" height="22"/>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6hJ-zt-FUf">
+                        <rect key="frame" x="89" y="86" width="166" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Name" drawsBackground="YES" id="qMK-PA-h01">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkG-Xf-jqb">
-                        <rect key="frame" x="89" y="69" width="166" height="22"/>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkG-Xf-jqb">
+                        <rect key="frame" x="89" y="52" width="166" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Key" drawsBackground="YES" id="e3X-Qx-yRJ">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Tf-L1-2C2">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Tf-L1-2C2">
                         <rect key="frame" x="139" y="13" width="66" height="32"/>
                         <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="exH-2l-rJT">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -43,19 +43,14 @@
                         </connections>
                     </button>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="6hJ-zt-FUf" firstAttribute="centerX" secondItem="zkG-Xf-jqb" secondAttribute="centerX" id="3jF-0T-jsk"/>
-                    <constraint firstItem="6Tf-L1-2C2" firstAttribute="centerY" secondItem="6hJ-zt-FUf" secondAttribute="centerY" constant="44.5" id="HFh-io-9yE"/>
-                    <constraint firstItem="6Tf-L1-2C2" firstAttribute="centerX" secondItem="zkG-Xf-jqb" secondAttribute="centerX" id="Qcq-c5-8wF"/>
-                    <constraint firstAttribute="centerX" secondItem="6Tf-L1-2C2" secondAttribute="centerX" constant="0.5" id="sug-3h-Xd1"/>
-                </constraints>
             </view>
-            <point key="canvasLocation" x="444.5" y="227"/>
+            <point key="canvasLocation" x="444.5" y="216"/>
         </window>
         <customObject id="c77-Bf-XVH" customClass="AddKeyController">
             <connections>
                 <outlet property="keyBox" destination="zkG-Xf-jqb" id="bBd-0J-hwi"/>
                 <outlet property="nameBox" destination="6hJ-zt-FUf" id="Fih-N8-2am"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="byr-z4-Yjd"/>
             </connections>
         </customObject>
     </objects>

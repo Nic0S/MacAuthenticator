@@ -17,4 +17,6 @@
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property (strong, nonatomic) KeyStorage *keyStorage;
 
+-(void)addKey:(NSNotification *) notification;
+
 @end

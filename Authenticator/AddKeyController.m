@@ -12,7 +12,10 @@
 
 
 - (IBAction) addKeyButtonPressed:(id)sender{
+    NSDictionary *userInfo = @{ @"name" : [nameBox stringValue], @"secret" : [keyBox stringValue]};
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"KeyAddedNotification" object:nil userInfo:userInfo];
+    [window close];
 }
 
 
