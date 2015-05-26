@@ -38,6 +38,7 @@ int timeOut = 120;
     menu = [[NSMenu alloc] init];
     [_statusItem setAction:@selector(openMenu:)];
     
+    //Notification is activated when the "add" button is pressed
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addKey:) name:@"KeyAddedNotification" object:nil];
     
 
@@ -45,6 +46,9 @@ int timeOut = 120;
     
 }
 
+/*
+ refreshes the the data in the statusbar menu. Called once per second while status menu is open.
+ */
 -(void)setStatusBarMenu:(id)sender {
     NSLog(@"%@", @"update");
     //menu = [[NSMenu alloc] init];
@@ -75,15 +79,13 @@ int timeOut = 120;
     }
     
     //_statusItem.menu = menu;
-
-    secondsPassed++;
-    if(secondsPassed > timeOut){
-        [timer invalidate];
-        secondsPassed = 0;
-        timer = nil;
-    }
 }
 
+/*
+ Refreshes the menu, sets the timer for 1/sec refreshes, and then removes timer when menu is closed.
+ 
+ the NSEventTrackingRunLoopMode is necessary because having the menu open blocks the main thread.
+ */
 -(void)openMenu:(id)sender{
     NSLog(@"%@", @"openMenu");
     [self setStatusBarMenu:nil];
@@ -95,16 +97,26 @@ int timeOut = 120;
     NSLog(@"%@", @"done");
 }
 
+/*
+ Creates an instance of the "Add Key" window and shows it
+ */
 -(void)openAddKeyWindow:(id)sender {
     self.addKeyController = [[NSWindowController alloc] initWithWindowNibName:@"AddKeyWindow"];
     [_addKeyController showWindow:self];
     [[_addKeyController window] makeKeyAndOrderFront:self];
 }
 
+/*
+ Creates an instance of the "Remove Key" window and shows it
+ */
 -(void)openRemoveKeyWindow:(id)sender {
     
 }
 
+/*
+ Called when "Add" button is pressed, receives the name and secret, adds entry
+ to key storage.
+ */
 -(void)addKey:(NSNotification *) notification{
     NSString *name = notification.userInfo[@"name"];
     NSString *secret = notification.userInfo[@"secret"];

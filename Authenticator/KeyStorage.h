@@ -12,14 +12,30 @@
 
 -(instancetype)init;
 
+/*
+ Adds a new entry with the given name and secret.
+ */
 -(void)addKey:(NSString*)name key:(NSString*) key;
 
+/*
+ Removes an entry based on the name
+ */
 -(void)removeKey:(NSString*)name;
 
+/*
+ Returns a dictionary containing each entry's name mapped to
+ the current auth code.
+ */
 -(NSDictionary*)getAllAuthCodes;
 
+/*
+ Save data locally
+ */
 -(void)saveData;
 
+/*
+ Load data from local storage
+ */
 -(void)loadData;
 
 @end

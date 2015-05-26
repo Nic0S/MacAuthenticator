@@ -13,10 +13,13 @@
 
 @property (nonatomic, strong) NSWindowController *addKeyController;
 @property (nonatomic, strong) NSWindowController *removeKeyController;
-
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property (strong, nonatomic) KeyStorage *keyStorage;
 
+/*
+ Called when "Add" button is pressed, receives the name and secret, adds entry
+ to key storage.
+ */
 -(void)addKey:(NSNotification *) notification;
 
 @end
