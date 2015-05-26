@@ -8,31 +8,37 @@
 
 #import "KeyStorage.h"
 
+@interface KeyStorage ()
+@property (nonatomic, strong) NSMutableDictionary *keys;
+@end
+
 @implementation KeyStorage
 
-NSMutableDictionary* keys;
 
 -(instancetype)init
 {
+    NSLog(@"%@", @"created keystorage");
     self = [super init];
     if(self) {
-        keys = [NSMutableDictionary new];
+        _keys = [NSMutableDictionary new];
     }
     return self;
 }
 
--(bool)addKey:(NSString*)name key:(NSString*)secret{
-    if ([keys objectForKey:name] != NULL){
-        return false;
+-(void)addKey:(NSString*)name key:(NSString*)secret{
+    NSLog(@"%@", @"called addkey");
+    if ([_keys objectForKey:name] != nil){
+        NSLog(@"%@", @"already in keystorage");
+        //return NO;
     }
     
-    [keys setObject:secret forKey:name];
-    NSLog(@"add success %lu", (unsigned long)[keys count]);
-    return true;
+    [_keys setObject:secret forKey:name];
+    NSLog(@"add success %lu", (unsigned long)[_keys count]);
+    //return YES;
 }
 
 -(void)removeKey:(NSString*)name{
-    [keys removeObjectForKey:name];
+    [_keys removeObjectForKey:name];
 }
 
 -(NSDictionary*)getAllAuthCodes{
@@ -42,7 +48,7 @@ NSMutableDictionary* keys;
     
     NSMutableDictionary* codes = [NSMutableDictionary new];
     
-    for(id name in keys){
+    for(id name in _keys){
         NSTask *task = [[NSTask alloc] init];
         [task setLaunchPath:@"/bin/bash"];
         [task setArguments:@[@"-c", @"/usr/local/Cellar/oath-toolkit/2.4.1/bin/oathtool --totp -b W44UWPQ5S42GZN4DHG2FO6A" ]];

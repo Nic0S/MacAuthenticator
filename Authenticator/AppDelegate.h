@@ -7,14 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "KeyStorage.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>{
-@private
-    IBOutlet NSTextField *keyBox;
-}
+@interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (nonatomic, strong) NSWindowController *addKeyController;
 @property (nonatomic, strong) NSWindowController *removeKeyController;
 
-- (IBAction) addKeyButtonPressed:(id)sender;
+@property (strong, nonatomic) NSStatusItem *statusItem;
+@property (strong, nonatomic) KeyStorage *keyStorage;
+
 @end

@@ -10,15 +10,23 @@
         <window title="Add Key" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="345" height="93"/>
+            <rect key="contentRect" x="196" y="240" width="345" height="146"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="5" width="345" height="93"/>
+                <rect key="frame" x="0.0" y="-1" width="345" height="146"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6hJ-zt-FUf">
-                        <rect key="frame" x="89" y="51" width="166" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="qMK-PA-h01">
+                        <rect key="frame" x="89" y="106" width="166" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Name" drawsBackground="YES" id="qMK-PA-h01">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkG-Xf-jqb">
+                        <rect key="frame" x="89" y="69" width="166" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Key" drawsBackground="YES" id="e3X-Qx-yRJ">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -31,19 +39,23 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="addKeyButtonPressed:" target="c77-Bf-XVH" id="SoN-B2-Te5"/>
+                            <action selector="addKeyButtonPressed:" target="c77-Bf-XVH" id="8tG-WO-zoc"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="6hJ-zt-FUf" firstAttribute="centerX" secondItem="zkG-Xf-jqb" secondAttribute="centerX" id="3jF-0T-jsk"/>
                     <constraint firstItem="6Tf-L1-2C2" firstAttribute="centerY" secondItem="6hJ-zt-FUf" secondAttribute="centerY" constant="44.5" id="HFh-io-9yE"/>
+                    <constraint firstItem="6Tf-L1-2C2" firstAttribute="centerX" secondItem="zkG-Xf-jqb" secondAttribute="centerX" id="Qcq-c5-8wF"/>
+                    <constraint firstAttribute="centerX" secondItem="6Tf-L1-2C2" secondAttribute="centerX" constant="0.5" id="sug-3h-Xd1"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="444.5" y="200.5"/>
+            <point key="canvasLocation" x="444.5" y="227"/>
         </window>
-        <customObject id="c77-Bf-XVH" customClass="AppDelegate">
+        <customObject id="c77-Bf-XVH" customClass="AddKeyController">
             <connections>
-                <outlet property="keyBox" destination="6hJ-zt-FUf" id="Pvj-sa-yUi"/>
+                <outlet property="keyBox" destination="zkG-Xf-jqb" id="bBd-0J-hwi"/>
+                <outlet property="nameBox" destination="6hJ-zt-FUf" id="Fih-N8-2am"/>
             </connections>
         </customObject>
     </objects>

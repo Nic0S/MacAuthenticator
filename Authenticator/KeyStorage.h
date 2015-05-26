@@ -12,7 +12,7 @@
 
 -(instancetype)init;
 
--(bool)addKey:(NSString*)name key:(NSString*) key;
+-(void)addKey:(NSString*)name key:(NSString*) key;
 
 -(void)removeKey:(NSString*)name;
 

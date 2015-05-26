@@ -15,6 +15,7 @@
 		2243E3D71B0974E300CB9630 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2243E3D61B0974E300CB9630 /* icon.png */; };
 		225133571AEDD1B200144716 /* KeyStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 225133561AEDD1B200144716 /* KeyStorage.m */; };
 		22EEB45A1B13D9CF00DB23B2 /* AddKeyWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */; };
+		22EEB4601B13F2DF00DB23B2 /* AddKeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		225133551AEDD1B200144716 /* KeyStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyStorage.h; sourceTree = "<group>"; };
 		225133561AEDD1B200144716 /* KeyStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyStorage.m; sourceTree = "<group>"; };
 		22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddKeyWindow.xib; sourceTree = "<group>"; };
+		22EEB45E1B13F2DF00DB23B2 /* AddKeyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddKeyController.h; sourceTree = "<group>"; };
+		22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddKeyController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,10 @@
 				22221C5A1ADE0E730013E482 /* ViewController.m */,
 				22221C5C1ADE0E730013E482 /* Images.xcassets */,
 				22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */,
+				225133551AEDD1B200144716 /* KeyStorage.h */,
+				225133561AEDD1B200144716 /* KeyStorage.m */,
+				22EEB45E1B13F2DF00DB23B2 /* AddKeyController.h */,
+				22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */,
 				22221C521ADE0E730013E482 /* Supporting Files */,
 			);
 			path = Authenticator;
@@ -101,8 +108,6 @@
 			children = (
 				22221C531ADE0E730013E482 /* Info.plist */,
 				22221C571ADE0E730013E482 /* main.m */,
-				225133551AEDD1B200144716 /* KeyStorage.h */,
-				225133561AEDD1B200144716 /* KeyStorage.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22221C5B1ADE0E730013E482 /* ViewController.m in Sources */,
+				22EEB4601B13F2DF00DB23B2 /* AddKeyController.m in Sources */,
 				225133571AEDD1B200144716 /* KeyStorage.m in Sources */,
 				22221C581ADE0E730013E482 /* main.m in Sources */,
 				22221C561ADE0E730013E482 /* AppDelegate.m in Sources */,
