@@ -43,12 +43,14 @@
 
 -(NSDictionary*)getAllAuthCodes{
     int pid = [[NSProcessInfo processInfo] processIdentifier];
-    NSPipe *pipe = [NSPipe pipe];
-    NSFileHandle *file = pipe.fileHandleForReading;
+    
+    
     
     NSMutableDictionary* codes = [NSMutableDictionary new];
     
     for(id name in _keys){
+        NSPipe *pipe = [NSPipe pipe];
+        NSFileHandle *file = pipe.fileHandleForReading;
         NSTask *task = [[NSTask alloc] init];
         [task setLaunchPath:@"/bin/bash"];
         NSString *arg = [NSString stringWithFormat:@"/usr/local/Cellar/oath-toolkit/2.4.1/bin/oathtool --totp -b %@", _keys[name]];

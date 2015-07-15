@@ -57,7 +57,7 @@ int timeOut = 120;
     [menu addItemWithTitle:@"Remove Key..." action:@selector(openRemoveKeyWindow:) keyEquivalent:@""];
     [menu addItem:[NSMenuItem separatorItem]];
     [menu setAutoenablesItems:NO];
-    NSDictionary *authCodes = [_keyStorage getAllAuthCodes];
+    NSDictionary *authCodes = [_keyStorage getAllAuthCodes]; // BUG HAPPENS HERE
     
     NSDate* now = [NSDate date];
     NSCalendar *gCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -94,12 +94,12 @@ int timeOut = 120;
     [runLoop addTimer:timer forMode:NSEventTrackingRunLoopMode];
     [_statusItem popUpStatusItemMenu:menu];
     [timer invalidate];
-    NSLog(@"%@", @"done");
+    //NSLog(@"%@", @"done");
 }
 
 /*
  Creates an instance of the "Add Key" window and shows it
- */
+*/
 -(void)openAddKeyWindow:(id)sender {
     self.addKeyController = [[NSWindowController alloc] initWithWindowNibName:@"AddKeyWindow"];
     [_addKeyController showWindow:self];
@@ -108,9 +108,15 @@ int timeOut = 120;
 
 /*
  Creates an instance of the "Remove Key" window and shows it
- */
+*/
 -(void)openRemoveKeyWindow:(id)sender {
+    self.removeKeyController = [[NSWindowController alloc] initWithWindowNibName:@"RemoveKeyWindow"];
+    [_removeKeyController showWindow:self];
+    [[_removeKeyController window] makeKeyAndOrderFront:self];
     
+    NSDictionary *userInfo = _keyStorage.getAllAuthCodes;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Names" object:nil userInfo:userInfo];
 }
 
 /*

@@ -33,6 +33,10 @@
 		<data>
 		9dIvBdgQ8cMJDS7X3I3JhVs3C7A=
 		</data>
+		<key>Resources/RemoveKeyWindow.nib</key>
+		<data>
+		QUhnjIdpByBo4NPpXpcFpRJJJ84=
+		</data>
 		<key>Resources/icon.png</key>
 		<data>
 		3EzJzegwJr++0xfYRIv4vxok04Q=
@@ -68,6 +72,10 @@
 		<key>Resources/Main.storyboardc/addKeyWindowController.nib</key>
 		<data>
 		9dIvBdgQ8cMJDS7X3I3JhVs3C7A=
+		</data>
+		<key>Resources/RemoveKeyWindow.nib</key>
+		<data>
+		QUhnjIdpByBo4NPpXpcFpRJJJ84=
 		</data>
 		<key>Resources/icon.png</key>
 		<data>

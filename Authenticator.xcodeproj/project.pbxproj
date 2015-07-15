@@ -16,6 +16,9 @@
 		225133571AEDD1B200144716 /* KeyStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 225133561AEDD1B200144716 /* KeyStorage.m */; };
 		22EEB45A1B13D9CF00DB23B2 /* AddKeyWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */; };
 		22EEB4601B13F2DF00DB23B2 /* AddKeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */; };
+		22F92A5A1B1513D30076C49E /* RemoveKeyWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22F92A591B1513D30076C49E /* RemoveKeyWindow.xib */; };
+		22F92A5D1B1514900076C49E /* RemoveKeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F92A5C1B1514900076C49E /* RemoveKeyController.m */; };
+		22F92A621B15324D0076C49E /* RemoveKeyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F92A611B15324D0076C49E /* RemoveKeyDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,11 @@
 		22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddKeyWindow.xib; sourceTree = "<group>"; };
 		22EEB45E1B13F2DF00DB23B2 /* AddKeyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddKeyController.h; sourceTree = "<group>"; };
 		22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddKeyController.m; sourceTree = "<group>"; };
+		22F92A591B1513D30076C49E /* RemoveKeyWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoveKeyWindow.xib; sourceTree = "<group>"; };
+		22F92A5B1B1514900076C49E /* RemoveKeyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveKeyController.h; sourceTree = "<group>"; };
+		22F92A5C1B1514900076C49E /* RemoveKeyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveKeyController.m; sourceTree = "<group>"; };
+		22F92A601B15324D0076C49E /* RemoveKeyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoveKeyDataSource.h; path = ../RemoveKeyDataSource.h; sourceTree = "<group>"; };
+		22F92A611B15324D0076C49E /* RemoveKeyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoveKeyDataSource.m; path = ../RemoveKeyDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,17 +95,22 @@
 		22221C511ADE0E730013E482 /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
+				22F92A601B15324D0076C49E /* RemoveKeyDataSource.h */,
+				22F92A611B15324D0076C49E /* RemoveKeyDataSource.m */,
 				2243E3D51B0974DA00CB9630 /* Assets */,
 				22221C541ADE0E730013E482 /* AppDelegate.h */,
 				22221C551ADE0E730013E482 /* AppDelegate.m */,
 				22221C591ADE0E730013E482 /* ViewController.h */,
 				22221C5A1ADE0E730013E482 /* ViewController.m */,
 				22221C5C1ADE0E730013E482 /* Images.xcassets */,
-				22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */,
 				225133551AEDD1B200144716 /* KeyStorage.h */,
 				225133561AEDD1B200144716 /* KeyStorage.m */,
+				22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */,
+				22F92A591B1513D30076C49E /* RemoveKeyWindow.xib */,
 				22EEB45E1B13F2DF00DB23B2 /* AddKeyController.h */,
 				22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */,
+				22F92A5B1B1514900076C49E /* RemoveKeyController.h */,
+				22F92A5C1B1514900076C49E /* RemoveKeyController.m */,
 				22221C521ADE0E730013E482 /* Supporting Files */,
 			);
 			path = Authenticator;
@@ -220,6 +233,7 @@
 				22221C5D1ADE0E730013E482 /* Images.xcassets in Resources */,
 				2243E3D71B0974E300CB9630 /* icon.png in Resources */,
 				22EEB45A1B13D9CF00DB23B2 /* AddKeyWindow.xib in Resources */,
+				22F92A5A1B1513D30076C49E /* RemoveKeyWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,11 +251,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F92A621B15324D0076C49E /* RemoveKeyDataSource.m in Sources */,
 				22221C5B1ADE0E730013E482 /* ViewController.m in Sources */,
 				22EEB4601B13F2DF00DB23B2 /* AddKeyController.m in Sources */,
 				225133571AEDD1B200144716 /* KeyStorage.m in Sources */,
 				22221C581ADE0E730013E482 /* main.m in Sources */,
 				22221C561ADE0E730013E482 /* AppDelegate.m in Sources */,
+				22F92A5D1B1514900076C49E /* RemoveKeyController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

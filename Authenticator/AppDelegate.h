@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KeyStorage.h"
+#import "RemoveKeyController.h"
+#import "RemoveKeyDataSource.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 

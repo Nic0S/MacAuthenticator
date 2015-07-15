@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 
-@interface RemoveKeyDataSource : NSObject
+@interface RemoveKeyDataSource : NSObject <NSTableViewDataSource, NSTableViewDelegate>
 
+@property (nonatomic, strong) NSMutableArray* names;
+
+-(NSUInteger) numberOfRowsInTableView:(NSTableView*)aTableView;
+
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex;
 @end
