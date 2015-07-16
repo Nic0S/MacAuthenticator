@@ -12,7 +12,11 @@
 
 @end
 
+
+
 @implementation RemoveKeyController
+
+int selectedRow = -1;
 -(instancetype)init{
     if(self = [super init]){
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setNames:) name:@"Names" object:nil];
@@ -21,32 +25,24 @@
     return self;
 }
 
-- (void)windowDidLoad {
-    
+- (void)awakeFromNib {
+    [nameTable setHeaderView:nil];
+    [nameTable setDataSource:self];
+    [nameTable setDelegate:self];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
 
 -(IBAction)removeKeyButtonPressed:(id)sender{
-    NSLog(@"");
+    if(selectedRow != -1){
+        NSDictionary *userInfo = @{ @"name" : _names[selectedRow]};
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"KeyRemovedNotification" object:nil userInfo:userInfo];
+    }
 }
 
 -(void)setNames:(NSNotification*)notification{
     _names = notification.userInfo.allKeys;
-    
-    NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"NewColumn"];
-    
-    //[nameTable addTableColumn:column];
-    NSLog(@"num cols: %lu", (unsigned long)[nameTable numberOfColumns]);
-    //RemoveKeyDataSource *dataSource = [RemoveKeyDataSource new];
-    //dataSource.names = [NSMutableArray arrayWithArray:names];
-    //[nameTable setDataSource:dataSource];
-    [nameTable setHeaderView:nil];
-    [nameTable setDataSource:self];
-    [nameTable setDelegate:self];
-    //[nameTable setDelegate:dataSource];
-    //[nameTable reloadData];}
-
+    [nameTable reloadData];
 }
 
 - (NSUInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -71,7 +67,7 @@
                   row:(NSInteger)row {
     
     // Get an existing cell with the MyView identifier if it exists
-    NSTableCellView *result = [tableView makeViewWithIdentifier:@"MyView" owner:self];
+    NSTableCellView *result = nil; //[tableView makeViewWithIdentifier:@"MyView" owner:self];
     
     // There is no existing cell to reuse so create a new one
     if (result == nil) {
@@ -103,6 +99,7 @@
     
     NSTableView *tableView = notification.object;
     NSLog(@"User has selected row %ld", (long)tableView.selectedRow);
+    selectedRow = (int)tableView.selectedRow;
 }
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{

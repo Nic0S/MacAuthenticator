@@ -40,7 +40,7 @@ int timeOut = 120;
     
     //Notification is activated when the "add" button is pressed
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addKey:) name:@"KeyAddedNotification" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeKey:) name:@"KeyRemovedNotification" object:nil];
 
 
     
@@ -112,10 +112,13 @@ int timeOut = 120;
 -(void)openRemoveKeyWindow:(id)sender {
     self.removeKeyController = [[NSWindowController alloc] initWithWindowNibName:@"RemoveKeyWindow"];
     [_removeKeyController showWindow:self];
-    [[_removeKeyController window] makeKeyAndOrderFront:self];
+    [[_removeKeyController window] makeKeyAndOrderFront:nil];
     
+    [self updateRemoveKeyNames];
+}
+
+-(void)updateRemoveKeyNames {
     NSDictionary *userInfo = _keyStorage.getAllAuthCodes;
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Names" object:nil userInfo:userInfo];
 }
 
@@ -130,6 +133,12 @@ int timeOut = 120;
     NSLog(@"%@ %@", name, secret);
     
     [_keyStorage addKey:name key:secret];
+}
+
+-(void)removeKey:(NSNotification *) notification{
+    NSString *name = notification.userInfo[@"name"];
+    [_keyStorage removeKey:name];
+    [self updateRemoveKeyNames];
 }
 
 
