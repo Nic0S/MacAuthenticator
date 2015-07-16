@@ -18,7 +18,7 @@
     
     for(int i = 0; i < num.length; i++){
         result = result << 5;
-        result += charVal([num characterAtIndex:i]);
+        result += [self charVal:[num characterAtIndex:i]];
     }
     return result;
 }

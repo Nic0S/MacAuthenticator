@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
+#import "Utils.h"
 
 @interface AuthenticatorTests : XCTestCase
 
@@ -28,6 +29,17 @@
 - (void)testExample {
     // This is an example of a functional test case.
     XCTAssert(YES, @"Pass");
+}
+
+-(void) testDecodeBase32 {
+    NSArray *strings = @[@"121GHKLEI", @"83ADRA48GVG", @"2JTEQGD2C"];
+    NSArray *results = @[@"1169860220370", @"9124223494931440", @"2883494360140"];
+    
+    for(int i = 0; i < strings.count; i++) {
+        long long result = [Utils decodeBase32:strings[i]];
+        NSString *stringResult = [NSString stringWithFormat:@"%lli", result];
+        XCTAssert([stringResult isEqualToString:results[i]]);
+    }
 }
 
 - (void)testPerformanceExample {
