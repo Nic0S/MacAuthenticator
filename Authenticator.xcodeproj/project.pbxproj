@@ -95,9 +95,10 @@
 		22221C511ADE0E730013E482 /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
+				2243E3D51B0974DA00CB9630 /* Assets */,
+				226D7E951B573FEF008617F3 /* Window Controllers */,
 				22F92A601B15324D0076C49E /* RemoveKeyDataSource.h */,
 				22F92A611B15324D0076C49E /* RemoveKeyDataSource.m */,
-				2243E3D51B0974DA00CB9630 /* Assets */,
 				22221C541ADE0E730013E482 /* AppDelegate.h */,
 				22221C551ADE0E730013E482 /* AppDelegate.m */,
 				22221C591ADE0E730013E482 /* ViewController.h */,
@@ -107,10 +108,6 @@
 				225133561AEDD1B200144716 /* KeyStorage.m */,
 				22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */,
 				22F92A591B1513D30076C49E /* RemoveKeyWindow.xib */,
-				22EEB45E1B13F2DF00DB23B2 /* AddKeyController.h */,
-				22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */,
-				22F92A5B1B1514900076C49E /* RemoveKeyController.h */,
-				22F92A5C1B1514900076C49E /* RemoveKeyController.m */,
 				22221C521ADE0E730013E482 /* Supporting Files */,
 			);
 			path = Authenticator;
@@ -148,6 +145,17 @@
 				2243E3D61B0974E300CB9630 /* icon.png */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		226D7E951B573FEF008617F3 /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				22EEB45E1B13F2DF00DB23B2 /* AddKeyController.h */,
+				22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */,
+				22F92A5B1B1514900076C49E /* RemoveKeyController.h */,
+				22F92A5C1B1514900076C49E /* RemoveKeyController.m */,
+			);
+			name = "Window Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

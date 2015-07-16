@@ -70,7 +70,7 @@ int timeOut = 120;
     for(NSString *key in authCodes){
         NSMutableString *menuItem = [NSMutableString new];
         [menuItem appendString:key];
-        [menuItem appendString:@"\t\t"];
+        [menuItem appendString:@"\t\t\t"];
         [menuItem appendString:authCodes[key]];
         
         [menu addItemWithTitle:menuItem action:nil keyEquivalent:@""];
