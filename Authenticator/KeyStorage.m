@@ -71,6 +71,12 @@
     return codes;
 }
 
+-(int)getAuthCode:(NSString*)secret {
+    long time = NSDate.date.timeIntervalSince1970 / 30;
+    
+    return 0;
+}
+
 -(void)saveData{
     
 }
