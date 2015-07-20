@@ -49,6 +49,14 @@
     return result;
 }
 
++(NSString*)intToBase32String:(long long)number{
+    NSMutableString *result = [NSMutableString new];
+    
+    //for(int i = 0; i < 32)
+    
+    return result;
+}
+
 +(int) charVal:(char)c{
     if(c <= '9' && c >= '0'){
         return c - '0';
