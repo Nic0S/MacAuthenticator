@@ -58,8 +58,8 @@
 		22F92A591B1513D30076C49E /* RemoveKeyWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoveKeyWindow.xib; sourceTree = "<group>"; };
 		22F92A5B1B1514900076C49E /* RemoveKeyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveKeyController.h; sourceTree = "<group>"; };
 		22F92A5C1B1514900076C49E /* RemoveKeyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveKeyController.m; sourceTree = "<group>"; };
-		22F92A601B15324D0076C49E /* RemoveKeyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoveKeyDataSource.h; path = ../RemoveKeyDataSource.h; sourceTree = "<group>"; };
-		22F92A611B15324D0076C49E /* RemoveKeyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoveKeyDataSource.m; path = ../RemoveKeyDataSource.m; sourceTree = "<group>"; };
+		22F92A601B15324D0076C49E /* RemoveKeyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveKeyDataSource.h; sourceTree = "<group>"; };
+		22F92A611B15324D0076C49E /* RemoveKeyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveKeyDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2200737A1B653E340060C38E /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				222EB81D1B5C817B009E02FB /* NSData+Crypto.h */,
+				222EB81E1B5C817B009E02FB /* NSData+Crypto.m */,
+			);
+			name = Crypto;
+			sourceTree = "<group>";
+		};
 		22221C461ADE0E730013E482 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +110,7 @@
 		22221C511ADE0E730013E482 /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
+				2200737A1B653E340060C38E /* Crypto */,
 				2243E3D51B0974DA00CB9630 /* Assets */,
 				226D7E951B573FEF008617F3 /* Window Controllers */,
 				22F92A601B15324D0076C49E /* RemoveKeyDataSource.h */,
@@ -117,8 +127,6 @@
 				22221C521ADE0E730013E482 /* Supporting Files */,
 				226D7E961B5743BB008617F3 /* Utils.m */,
 				226D7E981B5743C7008617F3 /* Utils.h */,
-				222EB81D1B5C817B009E02FB /* NSData+Crypto.h */,
-				222EB81E1B5C817B009E02FB /* NSData+Crypto.m */,
 			);
 			path = Authenticator;
 			sourceTree = "<group>";

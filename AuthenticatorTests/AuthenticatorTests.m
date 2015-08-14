@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
 #import "Utils.h"
+#import "NSData+Crypto.h"
 
 @interface AuthenticatorTests : XCTestCase
 
@@ -47,6 +48,20 @@
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
     }];
+}
+
+- (void)testHMAC {
+    NSString* code = @"AWZTMBJDRDOLFEUFDR5ONPLY";
+    int asnwer = 675333;
+    int epoch = 1437847786;
+    unsigned int time = epoch / 30;
+    NSData* data = [NSData dataWithBase32String:code];
+    
+    NSData* secret = [NSData dataWithBytes:&time length: sizeof(time)];
+    NSData* result = [secret HMACUsingSHA1_withSecretKey:data];
+    result = [result subdataWithRange:NSMakeRange([result length] - 4, 4)];
+    unsigned long long l = *(int*) ([result bytes]);
+    NSLog(@"%@", [result base32String]);
 }
 
 @end
