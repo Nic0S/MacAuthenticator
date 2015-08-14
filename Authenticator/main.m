@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KeyStorage.h"
+#import "AppDelegate.h"
 
 int main(int argc, const char * argv[]) {
 //    KeyStorage* keyStore = [KeyStorage new];
@@ -21,5 +22,14 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"%@: %@", key, codes[key]);
 //    }
     
-    return NSApplicationMain(argc, argv);
+//    return NSApplicationMain(argc, argv);
+    @autoreleasepool {
+        NSApplication * application = [NSApplication sharedApplication];
+        AppDelegate* appDelegate = [[AppDelegate alloc] init];
+        
+        [application setDelegate:appDelegate];
+        [application run];
+    }
+    
+    return EXIT_SUCCESS;
 }
