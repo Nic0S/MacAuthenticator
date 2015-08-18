@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
+
 @end
 
 @implementation AppDelegate
@@ -68,10 +69,19 @@ int timeOut = 120;
         [menuItem appendString:key];
         [menuItem appendString:@"\t\t\t"];
         [menuItem appendString:authCodes[key]];
-        
-        [menu addItemWithTitle:menuItem action:nil keyEquivalent:@""];
+        [menu addItemWithTitle:menuItem action:@selector(menuItemClicked:) keyEquivalent:authCodes[key]];
         
         NSLog(@"%@ %@", key, authCodes[key]);
+    }
+}
+
+-(void)menuItemClicked:(NSNotification *)notification{
+    NSArray* ar = [NSArray arrayWithObject:@"_keyEquivalent"];
+    NSString* selectedCode = [notification dictionaryWithValuesForKeys:ar][@"_keyEquivalent"];
+    if(selectedCode != nil){
+        NSPasteboard* pasteBoard = [NSPasteboard generalPasteboard];
+        [pasteBoard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
+        [pasteBoard setString:selectedCode forType:NSStringPboardType];
     }
 }
 
