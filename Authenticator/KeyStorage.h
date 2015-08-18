@@ -40,4 +40,9 @@
  */
 -(void)loadData;
 
+/*
+ Check if a secret is valid
+ */
++(BOOL)verifyKey:(NSString*)key;
+
 @end

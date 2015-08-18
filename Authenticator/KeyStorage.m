@@ -20,7 +20,7 @@
     NSLog(@"%@", @"created keystorage");
     self = [super init];
     if(self) {
-        _keys = [NSMutableDictionary new];
+        [self loadData];
     }
     return self;
 }
@@ -31,9 +31,10 @@
         return;
     }
     
-    if([OTPAuthURL base32Decode:secret] != nil){
+    if([KeyStorage verifyKey:secret]){
         NSLog(@"add success %lu", (unsigned long)[_keys count]);
         [_keys setObject:secret forKey:name];
+        [self saveData];
     } else {
         NSLog(@"add failure");
 
@@ -42,6 +43,7 @@
 
 -(void)removeKey:(NSString*)name{
     [_keys removeObjectForKey:name];
+    [self saveData];
 }
 
 -(NSDictionary*)getAllAuthCodes{
@@ -57,13 +59,41 @@
 }
 
 -(void)saveData{
-    
+    [NSKeyedArchiver archiveRootObject:_keys toFile:[self pathForDataFile]];
 }
 
 -(void)loadData{
-    
+    NSString* path = [self pathForDataFile];
+    NSDictionary* keys;
+    _keys = [NSMutableDictionary new];
+    keys = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if(keys != nil){
+        for(id name in keys){
+            if([KeyStorage verifyKey:keys[name]]){
+                [_keys setObject:keys[name] forKey:name];
+            }
+        }
+    }
 }
 
+- (NSString *) pathForDataFile
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSString *folder = @"~/Library/Application Support/MacAuthenticator/";
+    folder = [folder stringByExpandingTildeInPath];
+    
+    if ([fileManager fileExistsAtPath: folder] == NO)
+    {
+        [fileManager createDirectoryAtPath:folder withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    NSString *fileName = @"MacAuthenticator.secrets";
+    return [folder stringByAppendingPathComponent: fileName];
+}
 
++(BOOL)verifyKey:(NSString*)key{
+    return key && [OTPAuthURL base32Decode:key] != nil;
+}
 
 @end
