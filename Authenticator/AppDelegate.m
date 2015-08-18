@@ -20,6 +20,7 @@ int timeOut = 120;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
+    
     _keyStorage = [[KeyStorage alloc] init];
     // Insert code here to initialize your application
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
@@ -42,7 +43,7 @@ int timeOut = 120;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addKey:) name:@"KeyAddedNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeKey:) name:@"KeyRemovedNotification" object:nil];
 
-
+    
     
 }
 

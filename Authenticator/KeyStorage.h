@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TOTPLib/TOTPGenerator.h"
+#import "TOTPLib/OTPAuthURL.h"
 
 @interface KeyStorage : NSObject
 
