@@ -66,7 +66,9 @@ int timeOut = 120;
     NSInteger second = 30 - [dateComponents second] % 30;
     [menu addItemWithTitle:[NSString stringWithFormat:@"Time:\t\t%ld", (long)second] action:nil keyEquivalent:@""];
     
-    [menu addItem:[NSMenuItem separatorItem]];
+    if([authCodes count] > 0){
+        [menu addItem:[NSMenuItem separatorItem]];
+    }
     
     for(NSString *key in authCodes){
         NSMutableString *menuItem = [NSMutableString new];
