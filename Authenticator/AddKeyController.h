@@ -18,4 +18,6 @@
 
 - (IBAction) addKeyButtonPressed:(id)sender;
 
+- (IBAction) cancelButtonPressed:(id)sender;
+
 @end

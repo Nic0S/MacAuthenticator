@@ -10,6 +10,7 @@
 #import "KeyStorage.h"
 #import "RemoveKeyController.h"
 #import "RemoveKeyDataSource.h"
+#import "Utils.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 

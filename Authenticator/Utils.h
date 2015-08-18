@@ -12,7 +12,7 @@
 
 @interface Utils : NSObject
 
-+(long long)decodeBase32:(NSString*)num;
++(NSArray*)formatMenuItems:(NSDictionary*)items;
 
 @end
 

@@ -64,11 +64,14 @@ int timeOut = 120;
         [menu addItem:[NSMenuItem separatorItem]];
     }
     
+    NSArray* items = [Utils formatMenuItems:authCodes];
+    
     for(NSString *key in authCodes){
         NSMutableString *menuItem = [NSMutableString new];
         [menuItem appendString:key];
         [menuItem appendString:@"\t\t\t"];
         [menuItem appendString:authCodes[key]];
+        
         [menu addItemWithTitle:menuItem action:@selector(menuItemClicked:) keyEquivalent:authCodes[key]];
         
         NSLog(@"%@ %@", key, authCodes[key]);

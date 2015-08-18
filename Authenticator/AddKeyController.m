@@ -18,5 +18,9 @@
     [window close];
 }
 
+- (IBAction)cancelButtonPressed:(id)sender{
+    [window close];
+}
+
 
 @end
