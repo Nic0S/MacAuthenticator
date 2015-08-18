@@ -26,7 +26,6 @@
 }
 
 -(void)addKey:(NSString*)name key:(NSString*)secret{
-    NSLog(@"%@", @"called addkey");
     if ([_keys objectForKey:name] != nil){
         NSLog(@"%@", @"already in keystorage");
         return;
@@ -48,33 +47,12 @@
 -(NSDictionary*)getAllAuthCodes{
     NSMutableDictionary* codes = [NSMutableDictionary new];
     
-//    for(id name in _keys){
-//        NSPipe *pipe = [NSPipe pipe];
-//        NSFileHandle *file = pipe.fileHandleForReading;
-//        NSTask *task = [[NSTask alloc] init];
-//        [task setLaunchPath:@"/bin/bash"];
-//        NSString *arg = [NSString stringWithFormat:@"/usr/local/Cellar/oath-toolkit/2.4.1/bin/oathtool --totp -b %@", _keys[name]];
-//        [task setArguments:@[@"-c", arg]];
-//        NSLog(@"Command: %@", task.arguments);
-//        task.standardOutput = pipe;
-//        
-//        [task launch];
-//        
-//        NSData *data = [file readDataToEndOfFile];
-//        [file closeFile];
-//        
-//        NSString *code = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-//        codes[name] = code;
-//
-    
     for(id name in _keys){
         NSData* data = [OTPAuthURL base32Decode:_keys[name]];
         TOTPGenerator* gen = [[TOTPGenerator alloc] initWithSecret:data algorithm:[TOTPGenerator defaultAlgorithm] digits:[TOTPGenerator defaultDigits] period:[TOTPGenerator defaultPeriod]];
         NSString* code = [gen generateOTPForDate:[NSDate date]];
         codes[name] = code;
     }
-    
-    
     return codes;
 }
 

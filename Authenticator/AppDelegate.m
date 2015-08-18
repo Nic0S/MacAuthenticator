@@ -22,16 +22,11 @@ int timeOut = 120;
     
     
     _keyStorage = [[KeyStorage alloc] init];
-    // Insert code here to initialize your application
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    
-    // The text that will be shown in the menu bar
     _statusItem.title = @"";
-    
-    // The image that will be shown in the menu bar, a 16x16 black png works best
     _statusItem.image = [NSImage imageNamed:@"icon.png"];
     
-    // The highlighted image, use a white version of the normal image
+    //highlighted image
     _statusItem.alternateImage = [NSImage imageNamed:@"icon.png"];
     
     // The image gets a blue background when the item is selected
@@ -39,7 +34,6 @@ int timeOut = 120;
     menu = [[NSMenu alloc] init];
     [_statusItem setAction:@selector(openMenu:)];
     
-    //Notification is activated when the "add" button is pressed
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addKey:) name:@"KeyAddedNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeKey:) name:@"KeyRemovedNotification" object:nil];
 
@@ -52,7 +46,6 @@ int timeOut = 120;
  */
 -(void)setStatusBarMenu:(id)sender {
     NSLog(@"%@", @"update");
-    //menu = [[NSMenu alloc] init];
     [menu removeAllItems];
     [menu addItemWithTitle:@"Add Key..." action:@selector(openAddKeyWindow:) keyEquivalent:@""];
     [menu addItemWithTitle:@"Remove Key..." action:@selector(openRemoveKeyWindow:) keyEquivalent:@""];
@@ -80,8 +73,6 @@ int timeOut = 120;
         
         NSLog(@"%@ %@", key, authCodes[key]);
     }
-    
-    //_statusItem.menu = menu;
 }
 
 /*
@@ -97,7 +88,6 @@ int timeOut = 120;
     [runLoop addTimer:timer forMode:NSEventTrackingRunLoopMode];
     [_statusItem popUpStatusItemMenu:menu];
     [timer invalidate];
-    //NSLog(@"%@", @"done");
 }
 
 /*
