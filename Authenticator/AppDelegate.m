@@ -58,7 +58,7 @@ int timeOut = 120;
     [menu addItemWithTitle:@"Remove Key..." action:@selector(openRemoveKeyWindow:) keyEquivalent:@""];
     [menu addItem:[NSMenuItem separatorItem]];
     [menu setAutoenablesItems:NO];
-    NSDictionary *authCodes = [_keyStorage getAllAuthCodes]; // BUG HAPPENS HERE
+    NSDictionary *authCodes = [_keyStorage getAllAuthCodes];
     
     NSDate* now = [NSDate date];
     NSCalendar *gCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];

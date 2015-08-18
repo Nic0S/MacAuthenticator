@@ -42,10 +42,6 @@
 }
 
 -(NSDictionary*)getAllAuthCodes{
-    int pid = [[NSProcessInfo processInfo] processIdentifier];
-    
-    
-    
     NSMutableDictionary* codes = [NSMutableDictionary new];
     
 //    for(id name in _keys){
@@ -71,17 +67,11 @@
         NSData* data = [OTPAuthURL base32Decode:_keys[name]];
         TOTPGenerator* gen = [[TOTPGenerator alloc] initWithSecret:data algorithm:[TOTPGenerator defaultAlgorithm] digits:[TOTPGenerator defaultDigits] period:[TOTPGenerator defaultPeriod]];
         NSString* code = [gen generateOTPForDate:[NSDate date]];
-        NSLog(@"%@", code);
+        codes[name] = code;
     }
     
     
     return codes;
-}
-
--(int)getAuthCode:(NSString*)secret {
-    long time = NSDate.date.timeIntervalSince1970 / 30;
-    
-    return 0;
 }
 
 -(void)saveData{
