@@ -97,6 +97,7 @@ int timeOut = 120;
     self.addKeyController = [[NSWindowController alloc] initWithWindowNibName:@"AddKeyWindow"];
     [_addKeyController showWindow:self];
     [[_addKeyController window] makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 /*
@@ -106,6 +107,8 @@ int timeOut = 120;
     self.removeKeyController = [[NSWindowController alloc] initWithWindowNibName:@"RemoveKeyWindow"];
     [_removeKeyController showWindow:self];
     [[_removeKeyController window] makeKeyAndOrderFront:nil];
+    [NSApp activateIgnoringOtherApps:YES];
+
     
     [self updateRemoveKeyNames];
 }
