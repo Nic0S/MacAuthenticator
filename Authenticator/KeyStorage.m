@@ -29,12 +29,16 @@
     NSLog(@"%@", @"called addkey");
     if ([_keys objectForKey:name] != nil){
         NSLog(@"%@", @"already in keystorage");
-        //return NO;
+        return;
     }
     
-    [_keys setObject:secret forKey:name];
-    NSLog(@"add success %lu", (unsigned long)[_keys count]);
-    //return YES;
+    if([OTPAuthURL base32Decode:secret] != nil){
+        NSLog(@"add success %lu", (unsigned long)[_keys count]);
+        [_keys setObject:secret forKey:name];
+    } else {
+        NSLog(@"add failure");
+
+    }
 }
 
 -(void)removeKey:(NSString*)name{
