@@ -143,10 +143,10 @@
 				225133561AEDD1B200144716 /* KeyStorage.m */,
 				22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */,
 				22F92A591B1513D30076C49E /* RemoveKeyWindow.xib */,
+				220B06EE1B8AAFD900B2E009 /* AuthCodeView.xib */,
 				22221C521ADE0E730013E482 /* Supporting Files */,
 				226D7E961B5743BB008617F3 /* Utils.m */,
 				226D7E981B5743C7008617F3 /* Utils.h */,
-				220B06EE1B8AAFD900B2E009 /* AuthCodeView.xib */,
 			);
 			path = Authenticator;
 			sourceTree = "<group>";

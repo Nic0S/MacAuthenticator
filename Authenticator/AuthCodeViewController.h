@@ -11,7 +11,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AuthCodeViewController : NSViewController
+@interface AuthCodeViewController : NSViewController {
+@private
+    IBOutlet NSTextField *nameField;
+    IBOutlet NSTextField *codeField;
+}
+
+-(void) setDisplayName:(NSString*)name code:(NSString*)code;
 
 @end
 

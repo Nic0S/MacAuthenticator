@@ -11,6 +11,21 @@
 
 @implementation AuthCodeViewController
 
+-(instancetype)init{
+    if(self = [super init]){
+        
+    }
+    return self;
+}
+
+- (void)awakeFromNib {
+    
+}
+
+-(void)setDisplayName:(NSString *)name code:(NSString *)code{
+    [nameField setStringValue:name];
+    [codeField setStringValue:code];
+}
 
 
 @end
