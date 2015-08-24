@@ -12,7 +12,7 @@
 
 @interface Utils : NSObject
 
-+(NSArray*)formatMenuItems:(NSDictionary*)items;
++(NSDictionary*)formatMenuItems:(NSDictionary*)items;
 
 @end
 

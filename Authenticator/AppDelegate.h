@@ -11,6 +11,7 @@
 #import "RemoveKeyController.h"
 #import "RemoveKeyDataSource.h"
 #import "Utils.h"
+#import "AuthCodeViewController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 

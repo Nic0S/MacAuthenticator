@@ -64,17 +64,25 @@ int timeOut = 120;
         [menu addItem:[NSMenuItem separatorItem]];
     }
     
-    NSArray* items = [Utils formatMenuItems:authCodes];
+    NSDictionary* items = [Utils formatMenuItems:authCodes];
     
-    for(NSString *key in authCodes){
-        NSMutableString *menuItem = [NSMutableString new];
-        [menuItem appendString:key];
-        [menuItem appendString:@"\t\t\t"];
-        [menuItem appendString:authCodes[key]];
-        
-        [menu addItemWithTitle:menuItem action:@selector(menuItemClicked:) keyEquivalent:authCodes[key]];
-        
-        NSLog(@"%@ %@", key, authCodes[key]);
+//    for(NSString *key in authCodes){
+//        NSMutableString *menuItem = [NSMutableString new];
+//        [menuItem appendString:key];
+//        [menuItem appendString:@"\t\t\t"];
+//        [menuItem appendString:authCodes[key]];
+//        
+//        [menu addItemWithTitle:menuItem action:@selector(menuItemClicked:) keyEquivalent:authCodes[key]];
+//        
+//        NSLog(@"%@ %@", key, authCodes[key]);
+//    }
+    
+    for(NSString *key in items) {
+        //[menu addItemWithTitle:items[key] action:@selector(menuItemClicked:) keyEquivalent:key];
+        AuthCodeViewController *viewController = [[AuthCodeViewController alloc] initWithNibName:@"AuthCodeView" bundle:nil];
+        NSMenuItem *menuItem = [[NSMenuItem alloc] init];
+        [menuItem setView:[viewController view]];
+        [menu addItem:menuItem];
     }
 }
 

@@ -11,19 +11,22 @@
 
 @implementation Utils
 
-+(NSArray*)formatMenuItems:(NSDictionary *)items{
++(NSDictionary*)formatMenuItems:(NSDictionary *)items{
     uint maxLength = 0;
     for(NSString* name in items){
         if([name length] > maxLength){
             maxLength = (int)[name length];
         }
     }
-    NSString* formatString = [NSString stringWithFormat:@"%@%d%@  %@", @"%", maxLength, @"@", @"%@"];
+    NSString* formatString = [NSString stringWithFormat:@"%@-%d%@\t\t%@", @"%", maxLength + 5, @"s", @"%s"];
     // %4@    %@
-    NSMutableArray *menuItems = [NSMutableArray new];
-    
+    NSMutableDictionary *menuItems = [NSMutableDictionary new];
+    maxLength = maxLength + 3;
     for(NSString* name in items){
-        //NSString* item = [NSString stringWithFormat:<#(NSString *), ...#>]
+//        NSString* item = [NSString stringWithFormat:formatString, name, items[name]];
+        //NSString* item = [NSString stringWithFormat:@"%s%*c%s", [name UTF8String], 33, ' ', [items[name] UTF8String]];
+        NSString* item = [NSString stringWithFormat:formatString, [name UTF8String], [items[name] UTF8String]];
+        menuItems[name] = item;
     }
 
     return menuItems;
