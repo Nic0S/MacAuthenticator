@@ -14,7 +14,7 @@
 
 @implementation AppDelegate
 
-NSMenu *menu;
+NSMenu *menu = nil;
 NSTimer *timer;
 int secondsPassed;
 int timeOut = 120;

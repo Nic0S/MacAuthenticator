@@ -14,6 +14,7 @@
 		22221C5D1ADE0E730013E482 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22221C5C1ADE0E730013E482 /* Images.xcassets */; };
 		22221C6C1ADE0E730013E482 /* AuthenticatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22221C6B1ADE0E730013E482 /* AuthenticatorTests.m */; };
 		222EB81F1B5C817B009E02FB /* NSData+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 222EB81E1B5C817B009E02FB /* NSData+Crypto.m */; };
+		223E063C1B8E9D22000A0300 /* AuthCodeMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 223E063B1B8E9D22000A0300 /* AuthCodeMenuItemView.m */; };
 		2243E3D71B0974E300CB9630 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2243E3D61B0974E300CB9630 /* icon.png */; };
 		225035EB1B7EAFE000EDC45B /* libTOTPLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 225035EA1B7EAFAB00EDC45B /* libTOTPLib.a */; };
 		225035F71B7EB2E500EDC45B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 225035EF1B7EB1F000EDC45B /* libz.dylib */; };
@@ -59,6 +60,8 @@
 		22221C6B1ADE0E730013E482 /* AuthenticatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthenticatorTests.m; sourceTree = "<group>"; };
 		222EB81D1B5C817B009E02FB /* NSData+Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Crypto.h"; sourceTree = "<group>"; };
 		222EB81E1B5C817B009E02FB /* NSData+Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Crypto.m"; sourceTree = "<group>"; };
+		223E063B1B8E9D22000A0300 /* AuthCodeMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthCodeMenuItemView.m; sourceTree = "<group>"; };
+		223E063E1B8E9D31000A0300 /* AuthCodeMenuItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthCodeMenuItemView.h; sourceTree = "<group>"; };
 		2243E3D61B0974E300CB9630 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		225035E51B7EAFAB00EDC45B /* TOTPLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TOTPLib.xcodeproj; path = ../TOTPLib/TOTPLib.xcodeproj; sourceTree = "<group>"; };
 		225035EF1B7EB1F000EDC45B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -147,6 +150,8 @@
 				22221C521ADE0E730013E482 /* Supporting Files */,
 				226D7E961B5743BB008617F3 /* Utils.m */,
 				226D7E981B5743C7008617F3 /* Utils.h */,
+				223E063B1B8E9D22000A0300 /* AuthCodeMenuItemView.m */,
+				223E063E1B8E9D31000A0300 /* AuthCodeMenuItemView.h */,
 			);
 			path = Authenticator;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				22221C581ADE0E730013E482 /* main.m in Sources */,
 				22221C561ADE0E730013E482 /* AppDelegate.m in Sources */,
 				22F92A5D1B1514900076C49E /* RemoveKeyController.m in Sources */,
+				223E063C1B8E9D22000A0300 /* AuthCodeMenuItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
