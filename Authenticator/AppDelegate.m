@@ -66,17 +66,6 @@ int timeOut = 120;
     
     NSDictionary* items = [Utils formatMenuItems:authCodes];
     
-//    for(NSString *key in authCodes){
-//        NSMutableString *menuItem = [NSMutableString new];
-//        [menuItem appendString:key];
-//        [menuItem appendString:@"\t\t\t"];
-//        [menuItem appendString:authCodes[key]];
-//        
-//        [menu addItemWithTitle:menuItem action:@selector(menuItemClicked:) keyEquivalent:authCodes[key]];
-//        
-//        NSLog(@"%@ %@", key, authCodes[key]);
-//    }
-    
     for(NSString *key in authCodes) {
         //[menu addItemWithTitle:items[key] action:@selector(menuItemClicked:) keyEquivalent:key];
         AuthCodeViewController *viewController = [[AuthCodeViewController alloc] initWithNibName:@"AuthCodeView" bundle:nil];

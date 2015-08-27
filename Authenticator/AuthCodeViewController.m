@@ -25,8 +25,9 @@
 -(void)setDisplayName:(NSString *)name code:(NSString *)code{
     [nameField setStringValue:name];
     [codeField setStringValue:code];
+    [self.view setNeedsDisplay:YES];
+    
 }
-
 
 
 @end

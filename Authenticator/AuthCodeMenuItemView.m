@@ -18,10 +18,19 @@
     
     NSButton *copyButton = [self viewWithTag:2];
     
-    if([[self enclosingMenuItem] isHighlighted]){
+    NSPoint globalLocation = [ NSEvent mouseLocation ];
+    NSPoint windowLocation = [ [ self window ] convertScreenToBase: globalLocation ];
+    NSPoint viewLocation = [ self convertPoint: windowLocation fromView: nil ];
+    if( NSPointInRect( viewLocation, [ self bounds ] ) ) {
         copyButton.hidden = NO;
     } else {
         copyButton.hidden = YES;
     }
+    
+//    if([[self enclosingMenuItem] isHighlighted]){
+//        copyButton.hidden = NO;
+//    } else {
+//        copyButton.hidden = YES;
+//    }
 }
 @end
