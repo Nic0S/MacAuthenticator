@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="codeField" destination="sr2-4r-a65" id="cUr-wH-Way"/>
                 <outlet property="nameField" destination="R7N-2r-lRh" id="wBU-fo-zPc"/>
-                <outlet property="view" destination="c22-O7-iKe" id="ZBA-f1-3FW"/>
+                <outlet property="view" destination="c22-O7-iKe" id="Dqj-H5-dyN"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -31,6 +31,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="copyButton:" target="-2" id="FaE-pL-b8B"/>
+                    </connections>
                 </button>
                 <textField verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="sr2-4r-a65">
                     <rect key="frame" x="166" y="0.0" width="95" height="22"/>

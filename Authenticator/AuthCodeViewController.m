@@ -29,5 +29,11 @@
     
 }
 
+-(IBAction)copyButton:(id)sender {
+    NSString* code = [codeField stringValue];
+    [[NSPasteboard generalPasteboard] clearContents];
+    [[NSPasteboard generalPasteboard] setString:code  forType:NSStringPboardType];
+}
+
 
 @end

@@ -26,11 +26,5 @@
     } else {
         copyButton.hidden = YES;
     }
-    
-//    if([[self enclosingMenuItem] isHighlighted]){
-//        copyButton.hidden = NO;
-//    } else {
-//        copyButton.hidden = YES;
-//    }
 }
 @end

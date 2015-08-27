@@ -19,6 +19,8 @@
 
 -(void) setDisplayName:(NSString*)name code:(NSString*)code;
 
+-(IBAction)copyButton:(id)sender;
+
 @end
 
 #endif

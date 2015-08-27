@@ -14,10 +14,15 @@
 
 @implementation AppDelegate
 
+NSInteger TIME = 343;
+NSInteger FIRST_CODE = 344;
+
 NSMenu *menu = nil;
 NSTimer *timer;
 int secondsPassed;
 int timeOut = 120;
+BOOL codeMenuNeedsRefresh = YES;
+NSMutableArray *menuViewControllers = nil;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
@@ -33,6 +38,15 @@ int timeOut = 120;
     // The image gets a blue background when the item is selected
     _statusItem.highlightMode = YES;
     menu = [[NSMenu alloc] init];
+    
+    [menu addItemWithTitle:@"Add Key..." action:@selector(openAddKeyWindow:) keyEquivalent:@""];
+    [menu addItemWithTitle:@"Remove Key..." action:@selector(openRemoveKeyWindow:) keyEquivalent:@""];
+    [menu addItem:[NSMenuItem separatorItem]];
+    NSMenuItem *timeItem = [[NSMenuItem alloc] init];
+    [timeItem setTag:TIME];
+    [menu addItem:timeItem];
+    [menu addItem:[NSMenuItem separatorItem]];
+    [menu setAutoenablesItems:NO];
     [_statusItem setAction:@selector(openMenu:)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addKey:) name:@"KeyAddedNotification" object:nil];
@@ -47,35 +61,50 @@ int timeOut = 120;
  */
 -(void)setStatusBarMenu:(id)sender {
     NSLog(@"%@", @"update");
-    [menu removeAllItems];
-    [menu addItemWithTitle:@"Add Key..." action:@selector(openAddKeyWindow:) keyEquivalent:@""];
-    [menu addItemWithTitle:@"Remove Key..." action:@selector(openRemoveKeyWindow:) keyEquivalent:@""];
-    [menu addItem:[NSMenuItem separatorItem]];
-    [menu setAutoenablesItems:NO];
-    NSDictionary *authCodes = [_keyStorage getAllAuthCodes];
+    //NSDictionary *authCodes = [_keyStorage getAllAuthCodes];
     
     NSDate* now = [NSDate date];
     NSCalendar *gCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dateComponents = [gCalendar components:(NSSecondCalendarUnit) fromDate:now];
     NSInteger second = 30 - [dateComponents second] % 30;
-    [menu addItemWithTitle:[NSString stringWithFormat:@"Time:\t\t%ld", (long)second] action:nil keyEquivalent:@""];
-    
-    if([authCodes count] > 0){
-        [menu addItem:[NSMenuItem separatorItem]];
-    }
-    
-    NSDictionary* items = [Utils formatMenuItems:authCodes];
-    
-    for(NSString *key in authCodes) {
-        //[menu addItemWithTitle:items[key] action:@selector(menuItemClicked:) keyEquivalent:key];
-        AuthCodeViewController *viewController = [[AuthCodeViewController alloc] initWithNibName:@"AuthCodeView" bundle:nil];
-        [viewController loadView];
-        [viewController setDisplayName:key code:authCodes[key]];
+   // [menu addItemWithTitle:[NSString stringWithFormat:@"Time:\t\t%ld", (long)second] action:nil keyEquivalent:@""];
+    [[menu itemWithTag:TIME] setTitle:[NSString stringWithFormat:@"Time:\t\t\t\t%ld", (long)second]];
+    [menu itemChanged:[menu itemWithTag:TIME]];
+     
+    NSDictionary *authCodes = [_keyStorage getAllAuthCodes];
+    if(codeMenuNeedsRefresh){
+        BOOL first = YES;
         
-        NSMenuItem *menuItem = [[NSMenuItem alloc] init];
-        [menuItem setView:[viewController view]];
-        [menu addItem:menuItem];
+        menuViewControllers = [NSMutableArray new];
+        for(NSString *key in authCodes) {
+            AuthCodeViewController *viewController = [[AuthCodeViewController alloc] initWithNibName:@"AuthCodeView" bundle:nil];
+            [viewController loadView];
+            [viewController setDisplayName:key code:authCodes[key]];
+            NSMenuItem *menuItem = [[NSMenuItem alloc] init];
+            if(first) {
+                [menuItem setTag:FIRST_CODE];
+                first = NO;
+            }
+            [menuItem setView:[viewController view]];
+            [menuViewControllers addObject:viewController];
+            [menu addItem:menuItem];
+        }
+        codeMenuNeedsRefresh = NO;
+    } else {
+        NSArray *items = [menu itemArray];
+        
+        int j = 0;
+        for(NSString *key in authCodes) {
+            [menuViewControllers[j++] setDisplayName:key code:authCodes[key]];
+        }
+        for(NSInteger i = [menu indexOfItemWithTag:FIRST_CODE]; i < [items count]; i++){
+            [menu itemChanged:items[j]];
+        }
     }
+    
+    //NSDictionary* items = [Utils formatMenuItems:authCodes];
+    
+    
 }
 
 -(void)menuItemClicked:(NSNotification *)notification{
@@ -142,12 +171,14 @@ int timeOut = 120;
     NSLog(@"%@ %@", name, secret);
     
     [_keyStorage addKey:name key:secret];
+    codeMenuNeedsRefresh = YES;
 }
 
 -(void)removeKey:(NSNotification *) notification{
     NSString *name = notification.userInfo[@"name"];
     [_keyStorage removeKey:name];
     [self updateRemoveKeyNames];
+    codeMenuNeedsRefresh = YES;
 }
 
 
