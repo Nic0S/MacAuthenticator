@@ -73,6 +73,13 @@ NSMutableArray *menuViewControllers = nil;
      
     NSDictionary *authCodes = [_keyStorage getAllAuthCodes];
     if(codeMenuNeedsRefresh){
+        NSInteger codeIndex = [menu indexOfItemWithTag:FIRST_CODE];
+        if(codeIndex > -1){
+            while([[menu itemArray] count] > codeIndex){
+                [menu removeItemAtIndex:codeIndex];
+            }
+        }
+        
         BOOL first = YES;
         
         menuViewControllers = [NSMutableArray new];
