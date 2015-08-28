@@ -33,6 +33,8 @@
     NSString* code = [codeField stringValue];
     [[NSPasteboard generalPasteboard] clearContents];
     [[NSPasteboard generalPasteboard] setString:code  forType:NSStringPboardType];
+    [copyButton setTitle:@"✔︎"];
+    [self.view setNeedsDisplay:YES];
 }
 
 

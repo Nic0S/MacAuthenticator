@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="AuthCodeViewController">
             <connections>
                 <outlet property="codeField" destination="sr2-4r-a65" id="cUr-wH-Way"/>
+                <outlet property="copyButton" destination="B4J-IC-rSU" id="zup-qc-fsW"/>
                 <outlet property="nameField" destination="R7N-2r-lRh" id="wBU-fo-zPc"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Dqj-H5-dyN"/>
             </connections>

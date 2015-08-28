@@ -25,6 +25,7 @@
         copyButton.hidden = NO;
     } else {
         copyButton.hidden = YES;
+        [copyButton setTitle:@"Copy"];
     }
 }
 @end

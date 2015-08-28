@@ -15,6 +15,7 @@
 @private
     IBOutlet NSTextField *nameField;
     IBOutlet NSTextField *codeField;
+    IBOutlet NSButton *copyButton;
 }
 
 -(void) setDisplayName:(NSString*)name code:(NSString*)code;
