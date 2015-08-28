@@ -10,6 +10,14 @@
 
 @implementation AddKeyController
 
+-(void)awakeFromNib{
+    NSPasteboard *pb = [NSPasteboard generalPasteboard];
+    NSString *clipboard = [pb stringForType:NSPasteboardTypeString];
+    if(clipboard != nil){
+        [keyBox setStringValue:clipboard];
+    }
+    
+}
 
 - (IBAction) addKeyButtonPressed:(id)sender{
     NSDictionary *userInfo = @{ @"name" : [nameBox stringValue], @"secret" : [keyBox stringValue]};
