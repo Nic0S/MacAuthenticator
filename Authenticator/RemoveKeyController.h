@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import <AppKit/AppKit.h>
-#import "RemoveKeyDataSource.h"
 
 @interface RemoveKeyController : NSObject <NSTableViewDataSource, NSTableViewDelegate>{
     

@@ -23,6 +23,7 @@ int secondsPassed;
 int timeOut = 120;
 BOOL codeMenuNeedsRefresh = YES;
 NSMutableArray *menuViewControllers = nil;
+TimeViewController *timeViewController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
@@ -42,9 +43,17 @@ NSMutableArray *menuViewControllers = nil;
     [menu addItemWithTitle:@"Add Key..." action:@selector(openAddKeyWindow:) keyEquivalent:@""];
     [menu addItemWithTitle:@"Remove Key..." action:@selector(openRemoveKeyWindow:) keyEquivalent:@""];
     [menu addItem:[NSMenuItem separatorItem]];
+//    NSMenuItem *timeItem = [[NSMenuItem alloc] init];
+//    [timeItem setEnabled:NO];
+//    [timeItem setTag:TIME];
+//    [menu addItem:timeItem];
+    
+    timeViewController = [[TimeViewController alloc] initWithNibName:@"TimeView" bundle:nil];
+    [timeViewController loadView];
     NSMenuItem *timeItem = [[NSMenuItem alloc] init];
-    [timeItem setTag:TIME];
+    [timeItem setView:[timeViewController view]];
     [menu addItem:timeItem];
+    
     [menu addItem:[NSMenuItem separatorItem]];
     [menu setAutoenablesItems:NO];
     [_statusItem setAction:@selector(openMenu:)];
@@ -67,8 +76,9 @@ NSMutableArray *menuViewControllers = nil;
     NSCalendar *gCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dateComponents = [gCalendar components:(NSSecondCalendarUnit) fromDate:now];
     NSInteger second = 30 - [dateComponents second] % 30;
-   // [menu addItemWithTitle:[NSString stringWithFormat:@"Time:\t\t%ld", (long)second] action:nil keyEquivalent:@""];
-    [[menu itemWithTag:TIME] setTitle:[NSString stringWithFormat:@"Time:\t\t\t\t%ld", (long)second]];
+    //[menu addItemWithTitle:[NSString stringWithFormat:@"Time:\t\t%ld", (long)second] action:nil keyEquivalent:@""];
+    //[[menu itemWithTag:TIME] setTitle:[NSString stringWithFormat:@"Time:\t\t\t\t\t\t\t%ld", (long)second]];
+    [timeViewController setTime:[NSString stringWithFormat:@"%ld", (long)second]];
     [menu itemChanged:[menu itemWithTag:TIME]];
      
     NSDictionary *authCodes = [_keyStorage getAllAuthCodes];

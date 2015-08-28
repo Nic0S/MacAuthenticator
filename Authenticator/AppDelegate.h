@@ -9,9 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "KeyStorage.h"
 #import "RemoveKeyController.h"
-#import "RemoveKeyDataSource.h"
 #import "Utils.h"
 #import "AuthCodeViewController.h"
+#import "TimeViewController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
