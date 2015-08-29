@@ -24,6 +24,7 @@ int timeOut = 120;
 BOOL codeMenuNeedsRefresh = YES;
 NSMutableArray *menuViewControllers = nil;
 TimeViewController *timeViewController;
+MenuViewController *menuViewController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
@@ -40,8 +41,14 @@ TimeViewController *timeViewController;
     _statusItem.highlightMode = YES;
     menu = [[NSMenu alloc] init];
     
-    [menu addItemWithTitle:@"Add Key..." action:@selector(openAddKeyWindow:) keyEquivalent:@""];
-    [menu addItemWithTitle:@"Remove Key..." action:@selector(openRemoveKeyWindow:) keyEquivalent:@""];
+//    [menu addItemWithTitle:@"Add Key..." action:@selector(openAddKeyWindow:) keyEquivalent:@""];
+//    [menu addItemWithTitle:@"Remove Key..." action:@selector(openRemoveKeyWindow:) keyEquivalent:@""];
+    menuViewController = [[MenuViewController alloc] initWithNibName:@"MenuView" bundle:nil];
+    [menuViewController loadView];
+    NSMenuItem *menuItem = [[NSMenuItem alloc] init];
+    [menuItem setView:[menuViewController view]];
+    [menu addItem:menuItem];
+    
     [menu addItem:[NSMenuItem separatorItem]];
 //    NSMenuItem *timeItem = [[NSMenuItem alloc] init];
 //    [timeItem setEnabled:NO];

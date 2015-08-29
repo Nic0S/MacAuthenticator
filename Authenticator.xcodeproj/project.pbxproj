@@ -23,6 +23,8 @@
 		225035F81B7EB2ED00EDC45B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 225035F11B7EB22100EDC45B /* libsqlite3.dylib */; };
 		225133571AEDD1B200144716 /* KeyStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 225133561AEDD1B200144716 /* KeyStorage.m */; };
 		226D7E971B5743BB008617F3 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D7E961B5743BB008617F3 /* Utils.m */; };
+		227C651E1B925B0900ED27D1 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227C651D1B925B0900ED27D1 /* MenuView.xib */; };
+		227C65211B925B9000ED27D1 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C65201B925B9000ED27D1 /* MenuViewController.m */; };
 		22EEB45A1B13D9CF00DB23B2 /* AddKeyWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */; };
 		22EEB4601B13F2DF00DB23B2 /* AddKeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */; };
 		22F92A5A1B1513D30076C49E /* RemoveKeyWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22F92A591B1513D30076C49E /* RemoveKeyWindow.xib */; };
@@ -74,6 +76,9 @@
 		225133561AEDD1B200144716 /* KeyStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyStorage.m; sourceTree = "<group>"; };
 		226D7E961B5743BB008617F3 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		226D7E981B5743C7008617F3 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		227C651D1B925B0900ED27D1 /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
+		227C651F1B925B9000ED27D1 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		227C65201B925B9000ED27D1 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddKeyWindow.xib; sourceTree = "<group>"; };
 		22EEB45E1B13F2DF00DB23B2 /* AddKeyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddKeyController.h; sourceTree = "<group>"; };
 		22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddKeyController.m; sourceTree = "<group>"; };
@@ -148,6 +153,7 @@
 				22F92A591B1513D30076C49E /* RemoveKeyWindow.xib */,
 				220B06EE1B8AAFD900B2E009 /* AuthCodeView.xib */,
 				223E06401B910D9B000A0300 /* TimeView.xib */,
+				227C651D1B925B0900ED27D1 /* MenuView.xib */,
 				22221C521ADE0E730013E482 /* Supporting Files */,
 				226D7E961B5743BB008617F3 /* Utils.m */,
 				226D7E981B5743C7008617F3 /* Utils.h */,
@@ -210,6 +216,8 @@
 				220B06F21B8AB7C900B2E009 /* AuthCodeViewController.h */,
 				223E06431B910E84000A0300 /* TimeViewController.m */,
 				223E06451B910E8E000A0300 /* TimeViewController.h */,
+				227C651F1B925B9000ED27D1 /* MenuViewController.h */,
+				227C65201B925B9000ED27D1 /* MenuViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -312,6 +320,7 @@
 			files = (
 				22221C5D1ADE0E730013E482 /* Images.xcassets in Resources */,
 				223E06411B910D9B000A0300 /* TimeView.xib in Resources */,
+				227C651E1B925B0900ED27D1 /* MenuView.xib in Resources */,
 				2243E3D71B0974E300CB9630 /* icon.png in Resources */,
 				22EEB45A1B13D9CF00DB23B2 /* AddKeyWindow.xib in Resources */,
 				22F92A5A1B1513D30076C49E /* RemoveKeyWindow.xib in Resources */,
@@ -342,6 +351,7 @@
 				22221C561ADE0E730013E482 /* AppDelegate.m in Sources */,
 				22F92A5D1B1514900076C49E /* RemoveKeyController.m in Sources */,
 				223E063C1B8E9D22000A0300 /* AuthCodeMenuItemView.m in Sources */,
+				227C65211B925B9000ED27D1 /* MenuViewController.m in Sources */,
 				223E06441B910E84000A0300 /* TimeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
