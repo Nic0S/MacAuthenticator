@@ -19,4 +19,8 @@
     // Do view setup here.
 }
 
+-(IBAction)addPressed:(id)sender{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddMenuToggled" object:nil userInfo:nil];
+}
+
 @end

@@ -13,6 +13,7 @@
 #import "AuthCodeViewController.h"
 #import "TimeViewController.h"
 #import "MenuViewController.h"
+#import "AddSecretViewController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 

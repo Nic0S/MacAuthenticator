@@ -16,12 +16,14 @@
 
 NSInteger TIME = 343;
 NSInteger FIRST_CODE = 344;
+NSInteger ADD_MENU = 345;
 
 NSMenu *menu = nil;
 NSTimer *timer;
 int secondsPassed;
 int timeOut = 120;
 BOOL codeMenuNeedsRefresh = YES;
+BOOL addMenuOpen = NO;
 NSMutableArray *menuViewControllers = nil;
 TimeViewController *timeViewController;
 MenuViewController *menuViewController;
@@ -59,6 +61,7 @@ MenuViewController *menuViewController;
     [timeViewController loadView];
     NSMenuItem *timeItem = [[NSMenuItem alloc] init];
     [timeItem setView:[timeViewController view]];
+    [timeItem setTag:TIME];
     [menu addItem:timeItem];
     
     [menu addItem:[NSMenuItem separatorItem]];
@@ -68,8 +71,7 @@ MenuViewController *menuViewController;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addKey:) name:@"KeyAddedNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeKey:) name:@"KeyRemovedNotification" object:nil];
 
-    
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addMenuToggled:) name:@"AddMenuToggled" object:nil];
 }
 
 /*
@@ -86,7 +88,21 @@ MenuViewController *menuViewController;
     //[menu addItemWithTitle:[NSString stringWithFormat:@"Time:\t\t%ld", (long)second] action:nil keyEquivalent:@""];
     //[[menu itemWithTag:TIME] setTitle:[NSString stringWithFormat:@"Time:\t\t\t\t\t\t\t%ld", (long)second]];
     [timeViewController setTime:[NSString stringWithFormat:@"%ld", (long)second]];
-    [menu itemChanged:[menu itemWithTag:TIME]];
+    
+    NSInteger addMenuLocation = [menu indexOfItemWithTag:ADD_MENU];
+    if(addMenuOpen && addMenuLocation == -1){
+        
+        AddSecretViewController* addController = [[AddSecretViewController alloc] initWithNibName:@"AddSecretView" bundle:nil];
+        [addController loadView];
+        NSMenuItem *addItem = [[NSMenuItem alloc] init];
+        [addItem setView:[addController view]];
+        [addItem setTag:ADD_MENU];
+        [menu insertItem:addItem atIndex:[menu indexOfItemWithTag:TIME] + 2];
+        [menu insertItem:[NSMenuItem separatorItem] atIndex:[menu indexOfItemWithTag:ADD_MENU] + 1];
+    } else if(!addMenuOpen && addMenuLocation > -1){
+        [menu removeItemAtIndex:addMenuLocation + 1];
+        [menu removeItemAtIndex:addMenuLocation];
+    }
      
     NSDictionary *authCodes = [_keyStorage getAllAuthCodes];
     if(codeMenuNeedsRefresh){
@@ -205,6 +221,10 @@ MenuViewController *menuViewController;
     codeMenuNeedsRefresh = YES;
 }
 
+-(void)addMenuToggled:(NSNotification *) notification{
+    addMenuOpen = !addMenuOpen;
+    [self setStatusBarMenu:nil];
+}
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
