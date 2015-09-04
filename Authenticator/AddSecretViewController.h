@@ -8,6 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AddSecretViewController : NSViewController
+@interface AddSecretViewController : NSViewController{
+@private
+    IBOutlet NSTextField* nameField;
+    IBOutlet NSTextField* codeField;
+}
+
+-(IBAction)itemEdited:(id)sender;
+
+-(void)reset;
 
 @end

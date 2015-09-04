@@ -23,4 +23,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"AddMenuToggled" object:nil userInfo:nil];
 }
 
+-(IBAction)removePressed:(id)sender{
+    
+}
+
 @end

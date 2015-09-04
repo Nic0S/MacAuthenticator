@@ -27,6 +27,7 @@ BOOL addMenuOpen = NO;
 NSMutableArray *menuViewControllers = nil;
 TimeViewController *timeViewController;
 MenuViewController *menuViewController;
+AddSecretViewController *addSecretViewController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
@@ -72,6 +73,9 @@ MenuViewController *menuViewController;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeKey:) name:@"KeyRemovedNotification" object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addMenuToggled:) name:@"AddMenuToggled" object:nil];
+    
+    addSecretViewController = [[AddSecretViewController alloc] initWithNibName:@"AddSecretView" bundle:nil];
+    [addSecretViewController loadView];
 }
 
 /*
@@ -91,17 +95,15 @@ MenuViewController *menuViewController;
     
     NSInteger addMenuLocation = [menu indexOfItemWithTag:ADD_MENU];
     if(addMenuOpen && addMenuLocation == -1){
-        
-        AddSecretViewController* addController = [[AddSecretViewController alloc] initWithNibName:@"AddSecretView" bundle:nil];
-        [addController loadView];
+        NSLog(@"adding menu");
         NSMenuItem *addItem = [[NSMenuItem alloc] init];
-        [addItem setView:[addController view]];
+        [addItem setView:[addSecretViewController view]];
         [addItem setTag:ADD_MENU];
+        
         [menu insertItem:addItem atIndex:[menu indexOfItemWithTag:TIME] + 2];
         [menu insertItem:[NSMenuItem separatorItem] atIndex:[menu indexOfItemWithTag:ADD_MENU] + 1];
     } else if(!addMenuOpen && addMenuLocation > -1){
-        [menu removeItemAtIndex:addMenuLocation + 1];
-        [menu removeItemAtIndex:addMenuLocation];
+        [self removeAddMenu];
     }
      
     NSDictionary *authCodes = [_keyStorage getAllAuthCodes];
@@ -147,6 +149,17 @@ MenuViewController *menuViewController;
     
 }
 
+-(void)removeAddMenu{
+    NSInteger addMenuLocation = [menu indexOfItemWithTag:ADD_MENU];
+    if(addMenuLocation == -1){
+        return;
+    }
+    [menu removeItemAtIndex:addMenuLocation + 1];
+    [menu removeItemAtIndex:addMenuLocation];
+    [addSecretViewController reset];
+    addMenuOpen = NO;
+}
+
 -(void)menuItemClicked:(NSNotification *)notification{
     NSArray* ar = [NSArray arrayWithObject:@"_keyEquivalent"];
     NSString* selectedCode = [notification dictionaryWithValuesForKeys:ar][@"_keyEquivalent"];
@@ -165,6 +178,7 @@ MenuViewController *menuViewController;
 -(void)openMenu:(id)sender{
     NSLog(@"%@", @"openMenu");
     [self setStatusBarMenu:nil];
+    [self removeAddMenu];
     NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(setStatusBarMenu:) userInfo:nil repeats:YES];
     [runLoop addTimer:timer forMode:NSEventTrackingRunLoopMode];
