@@ -26,7 +26,6 @@
 		227C651E1B925B0900ED27D1 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227C651D1B925B0900ED27D1 /* MenuView.xib */; };
 		227C65211B925B9000ED27D1 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C65201B925B9000ED27D1 /* MenuViewController.m */; };
 		227C65231B925F6000ED27D1 /* AddSecretView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227C65221B925F6000ED27D1 /* AddSecretView.xib */; };
-		227C65261B92636F00ED27D1 /* AddSecretViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C65251B92636F00ED27D1 /* AddSecretViewController.m */; };
 		22EEB45A1B13D9CF00DB23B2 /* AddKeyWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */; };
 		22EEB4601B13F2DF00DB23B2 /* AddKeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */; };
 		22F92A5A1B1513D30076C49E /* RemoveKeyWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22F92A591B1513D30076C49E /* RemoveKeyWindow.xib */; };
@@ -82,8 +81,6 @@
 		227C651F1B925B9000ED27D1 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		227C65201B925B9000ED27D1 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		227C65221B925F6000ED27D1 /* AddSecretView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSecretView.xib; sourceTree = "<group>"; };
-		227C65241B92636F00ED27D1 /* AddSecretViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSecretViewController.h; sourceTree = "<group>"; };
-		227C65251B92636F00ED27D1 /* AddSecretViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSecretViewController.m; sourceTree = "<group>"; };
 		22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddKeyWindow.xib; sourceTree = "<group>"; };
 		22EEB45E1B13F2DF00DB23B2 /* AddKeyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddKeyController.h; sourceTree = "<group>"; };
 		22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddKeyController.m; sourceTree = "<group>"; };
@@ -224,8 +221,6 @@
 				223E06451B910E8E000A0300 /* TimeViewController.h */,
 				227C651F1B925B9000ED27D1 /* MenuViewController.h */,
 				227C65201B925B9000ED27D1 /* MenuViewController.m */,
-				227C65241B92636F00ED27D1 /* AddSecretViewController.h */,
-				227C65251B92636F00ED27D1 /* AddSecretViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -357,7 +352,6 @@
 				226D7E971B5743BB008617F3 /* Utils.m in Sources */,
 				225133571AEDD1B200144716 /* KeyStorage.m in Sources */,
 				22221C581ADE0E730013E482 /* main.m in Sources */,
-				227C65261B92636F00ED27D1 /* AddSecretViewController.m in Sources */,
 				22221C561ADE0E730013E482 /* AppDelegate.m in Sources */,
 				22F92A5D1B1514900076C49E /* RemoveKeyController.m in Sources */,
 				223E063C1B8E9D22000A0300 /* AuthCodeMenuItemView.m in Sources */,

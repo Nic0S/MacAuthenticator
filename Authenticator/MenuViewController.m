@@ -20,7 +20,7 @@
 }
 
 -(IBAction)addPressed:(id)sender{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddMenuToggled" object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddPressed" object:nil userInfo:nil];
 }
 
 -(IBAction)removePressed:(id)sender{
