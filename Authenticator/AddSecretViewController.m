@@ -25,11 +25,7 @@
 }
 
 -(void)reset{
-    [nameField setEnabled:YES];
-    [nameField setEditable:YES];
     
-    [codeField setEnabled:YES];
-    [codeField setEditable:YES];
 }
 
 @end

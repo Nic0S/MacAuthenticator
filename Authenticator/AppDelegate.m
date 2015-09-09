@@ -27,7 +27,6 @@ BOOL addMenuOpen = NO;
 NSMutableArray *menuViewControllers = nil;
 TimeViewController *timeViewController;
 MenuViewController *menuViewController;
-AddSecretViewController *addSecretViewController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
@@ -43,9 +42,6 @@ AddSecretViewController *addSecretViewController;
     // The image gets a blue background when the item is selected
     _statusItem.highlightMode = YES;
     menu = [[NSMenu alloc] init];
-    
-//    [menu addItemWithTitle:@"Add Key..." action:@selector(openAddKeyWindow:) keyEquivalent:@""];
-//    [menu addItemWithTitle:@"Remove Key..." action:@selector(openRemoveKeyWindow:) keyEquivalent:@""];
     menuViewController = [[MenuViewController alloc] initWithNibName:@"MenuView" bundle:nil];
     [menuViewController loadView];
     NSMenuItem *menuItem = [[NSMenuItem alloc] init];
@@ -53,11 +49,6 @@ AddSecretViewController *addSecretViewController;
     [menu addItem:menuItem];
     
     [menu addItem:[NSMenuItem separatorItem]];
-//    NSMenuItem *timeItem = [[NSMenuItem alloc] init];
-//    [timeItem setEnabled:NO];
-//    [timeItem setTag:TIME];
-//    [menu addItem:timeItem];
-    
     timeViewController = [[TimeViewController alloc] initWithNibName:@"TimeView" bundle:nil];
     [timeViewController loadView];
     NSMenuItem *timeItem = [[NSMenuItem alloc] init];
@@ -73,9 +64,6 @@ AddSecretViewController *addSecretViewController;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeKey:) name:@"KeyRemovedNotification" object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addMenuToggled:) name:@"AddMenuToggled" object:nil];
-    
-    addSecretViewController = [[AddSecretViewController alloc] initWithNibName:@"AddSecretView" bundle:nil];
-    [addSecretViewController loadView];
 }
 
 /*
@@ -92,19 +80,6 @@ AddSecretViewController *addSecretViewController;
     //[menu addItemWithTitle:[NSString stringWithFormat:@"Time:\t\t%ld", (long)second] action:nil keyEquivalent:@""];
     //[[menu itemWithTag:TIME] setTitle:[NSString stringWithFormat:@"Time:\t\t\t\t\t\t\t%ld", (long)second]];
     [timeViewController setTime:[NSString stringWithFormat:@"%ld", (long)second]];
-    
-    NSInteger addMenuLocation = [menu indexOfItemWithTag:ADD_MENU];
-    if(addMenuOpen && addMenuLocation == -1){
-        NSLog(@"adding menu");
-        NSMenuItem *addItem = [[NSMenuItem alloc] init];
-        [addItem setView:[addSecretViewController view]];
-        [addItem setTag:ADD_MENU];
-        
-        [menu insertItem:addItem atIndex:[menu indexOfItemWithTag:TIME] + 2];
-        [menu insertItem:[NSMenuItem separatorItem] atIndex:[menu indexOfItemWithTag:ADD_MENU] + 1];
-    } else if(!addMenuOpen && addMenuLocation > -1){
-        [self removeAddMenu];
-    }
      
     NSDictionary *authCodes = [_keyStorage getAllAuthCodes];
     if(codeMenuNeedsRefresh){
@@ -149,17 +124,6 @@ AddSecretViewController *addSecretViewController;
     
 }
 
--(void)removeAddMenu{
-    NSInteger addMenuLocation = [menu indexOfItemWithTag:ADD_MENU];
-    if(addMenuLocation == -1){
-        return;
-    }
-    [menu removeItemAtIndex:addMenuLocation + 1];
-    [menu removeItemAtIndex:addMenuLocation];
-    [addSecretViewController reset];
-    addMenuOpen = NO;
-}
-
 -(void)menuItemClicked:(NSNotification *)notification{
     NSArray* ar = [NSArray arrayWithObject:@"_keyEquivalent"];
     NSString* selectedCode = [notification dictionaryWithValuesForKeys:ar][@"_keyEquivalent"];
@@ -178,7 +142,6 @@ AddSecretViewController *addSecretViewController;
 -(void)openMenu:(id)sender{
     NSLog(@"%@", @"openMenu");
     [self setStatusBarMenu:nil];
-    [self removeAddMenu];
     NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(setStatusBarMenu:) userInfo:nil repeats:YES];
     [runLoop addTimer:timer forMode:NSEventTrackingRunLoopMode];
