@@ -9,11 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 
-@interface AddKeyController : NSObject{
+@interface AddKeyController : NSWindowController{
 @private
     IBOutlet NSTextField *keyBox;
     IBOutlet NSTextField *nameBox;
-    IBOutlet NSWindow *window;
 }
 
 - (IBAction) addKeyButtonPressed:(id)sender;

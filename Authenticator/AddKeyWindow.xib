@@ -4,7 +4,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="AddKeyController">
+            <connections>
+                <outlet property="keyBox" destination="zkG-Xf-jqb" id="0he-1J-1r6"/>
+                <outlet property="nameBox" destination="6hJ-zt-FUf" id="AWi-MZ-bhf"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="Zm0-Mz-PcY"/>
+            </connections>
+        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Add Key" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
@@ -23,9 +29,6 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
-                        <connections>
-                            <action selector="addKeyButtonPressed:" target="c77-Bf-XVH" id="eAW-uF-8Ra"/>
-                        </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkG-Xf-jqb">
                         <rect key="frame" x="89" y="52" width="166" height="22"/>
@@ -34,9 +37,6 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
-                        <connections>
-                            <action selector="addKeyButtonPressed:" target="c77-Bf-XVH" id="QqD-vx-bih"/>
-                        </connections>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Tf-L1-2C2">
                         <rect key="frame" x="97" y="10" width="66" height="32"/>
@@ -45,7 +45,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="addKeyButtonPressed:" target="c77-Bf-XVH" id="8tG-WO-zoc"/>
+                            <action selector="addKeyButtonPressed:" target="-2" id="r9j-rf-x4B"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MN3-xv-j4f">
@@ -58,22 +58,12 @@ Gw
 </string>
                         </buttonCell>
                         <connections>
-                            <action selector="cancelButtonPressed:" target="c77-Bf-XVH" id="t6I-yA-qRy"/>
+                            <action selector="cancelButtonPressed:" target="-2" id="KD1-K4-eWk"/>
                         </connections>
                     </button>
                 </subviews>
             </view>
-            <connections>
-                <outlet property="delegate" destination="c77-Bf-XVH" id="Aod-Eg-e1W"/>
-            </connections>
-            <point key="canvasLocation" x="444.5" y="216"/>
+            <point key="canvasLocation" x="527.5" y="451"/>
         </window>
-        <customObject id="c77-Bf-XVH" customClass="AddKeyController">
-            <connections>
-                <outlet property="keyBox" destination="zkG-Xf-jqb" id="bBd-0J-hwi"/>
-                <outlet property="nameBox" destination="6hJ-zt-FUf" id="Fih-N8-2am"/>
-                <outlet property="window" destination="QvC-M9-y7g" id="byr-z4-Yjd"/>
-            </connections>
-        </customObject>
     </objects>
 </document>

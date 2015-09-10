@@ -13,10 +13,10 @@
 #import "AuthCodeViewController.h"
 #import "TimeViewController.h"
 #import "MenuViewController.h"
+#import "AddKeyController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (nonatomic, strong) NSWindowController *addKeyController;
 @property (nonatomic, strong) NSWindowController *removeKeyController;
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property (strong, nonatomic) KeyStorage *keyStorage;

@@ -25,6 +25,7 @@ int timeOut = 120;
 BOOL codeMenuNeedsRefresh = YES;
 BOOL addMenuOpen = NO;
 NSMutableArray *menuViewControllers = nil;
+AddKeyController *addKeyController;
 TimeViewController *timeViewController;
 MenuViewController *menuViewController;
 
@@ -155,9 +156,12 @@ MenuViewController *menuViewController;
  Creates an instance of the "Add Key" window and shows it
  */
 -(void)openAddKeyWindow:(id)sender {
-    self.addKeyController = [[NSWindowController alloc] initWithWindowNibName:@"AddKeyWindow"];
-    [_addKeyController showWindow:self];
-    [[_addKeyController window] makeKeyAndOrderFront:self];
+    if(addKeyController == nil || ![[addKeyController window] isVisible]){
+        addKeyController = [[AddKeyController alloc] initWithWindowNibName:@"AddKeyWindow"];
+    }
+    [addKeyController showWindow:self];
+    [addKeyController window];
+    [[addKeyController window] makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
 }
 
