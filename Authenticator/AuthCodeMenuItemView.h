@@ -15,6 +15,8 @@
 
 -(void) drawRect:(NSRect)dirtyRect;
 
+-(void)setRemoving:(BOOL)removing;
+
 @end
 
 #endif

@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "AuthCodeViewController.h"
 
-@implementation AuthCodeViewController
+@implementation AuthCodeViewController{
+    BOOL removing;
+}
 
 -(instancetype)init{
     if(self = [super init]){
@@ -29,12 +31,31 @@
     
 }
 
--(IBAction)copyButton:(id)sender {
+-(IBAction)buttonPressed:(id)sender {
+    if(removing){
+        [self removeButton];
+    } else {
+        [self copyButton];
+    }
+}
+
+-(void)copyButton{
     NSString* code = [codeField stringValue];
     [[NSPasteboard generalPasteboard] clearContents];
     [[NSPasteboard generalPasteboard] setString:code  forType:NSStringPboardType];
     [copyButton setTitle:@"✔︎"];
     [self.view setNeedsDisplay:YES];
+}
+
+-(void)removeButton{
+    NSDictionary *userInfo = @{ @"name" : [nameField stringValue]};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"KeyRemovedNotification" object:nil userInfo:userInfo];
+}
+
+-(void)setRemoveMenu:(BOOL)removeOpen{
+    removing = removeOpen;
+    [self.view setRemoving:removing];
 }
 
 

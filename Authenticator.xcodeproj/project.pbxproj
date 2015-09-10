@@ -157,8 +157,6 @@
 				22221C521ADE0E730013E482 /* Supporting Files */,
 				226D7E961B5743BB008617F3 /* Utils.m */,
 				226D7E981B5743C7008617F3 /* Utils.h */,
-				223E063B1B8E9D22000A0300 /* AuthCodeMenuItemView.m */,
-				223E063E1B8E9D31000A0300 /* AuthCodeMenuItemView.h */,
 			);
 			path = Authenticator;
 			sourceTree = "<group>";
@@ -212,6 +210,8 @@
 				22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */,
 				22F92A5B1B1514900076C49E /* RemoveKeyController.h */,
 				22F92A5C1B1514900076C49E /* RemoveKeyController.m */,
+				223E063B1B8E9D22000A0300 /* AuthCodeMenuItemView.m */,
+				223E063E1B8E9D31000A0300 /* AuthCodeMenuItemView.h */,
 				220B06F01B8AB7B500B2E009 /* AuthCodeViewController.m */,
 				220B06F21B8AB7C900B2E009 /* AuthCodeViewController.h */,
 				223E06431B910E84000A0300 /* TimeViewController.m */,

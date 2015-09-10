@@ -12,25 +12,35 @@
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate{
 
-NSInteger TIME = 343;
-NSInteger FIRST_CODE = 344;
-NSInteger ADD_MENU = 345;
-
-NSMenu *menu = nil;
-NSTimer *timer;
-int secondsPassed;
-int timeOut = 120;
-BOOL codeMenuNeedsRefresh = YES;
-BOOL addMenuOpen = NO;
-NSMutableArray *menuViewControllers = nil;
-AddKeyController *addKeyController;
-TimeViewController *timeViewController;
-MenuViewController *menuViewController;
+    NSInteger TIME;
+    NSInteger FIRST_CODE;
+    NSInteger ADD_MENU;
+    
+    NSMenu *menu;
+    NSTimer *timer;
+    int secondsPassed;
+    int timeOut;
+    BOOL codeMenuNeedsRefresh;
+    BOOL addMenuOpen;
+    BOOL removeMenuOpen;
+    NSMutableArray *authCodeViewControllers;
+    AddKeyController *addKeyController;
+    TimeViewController *timeViewController;
+    MenuViewController *menuViewController;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
+    codeMenuNeedsRefresh = YES;
+    addMenuOpen = NO;
+    removeMenuOpen = NO;
+    timeOut = 120;
+    TIME = 343;
+    FIRST_CODE = 344;
+    ADD_MENU = 345;
+    menu = nil;
+    authCodeViewControllers= nil;
     
     _keyStorage = [[KeyStorage alloc] init];
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
@@ -66,6 +76,7 @@ MenuViewController *menuViewController;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeKey:) name:@"KeyRemovedNotification" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openAddKeyWindow:) name:@"AddPressed" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeToggled:) name:@"RemovePressed" object:nil];
 }
 
 /*
@@ -94,18 +105,20 @@ MenuViewController *menuViewController;
         
         BOOL first = YES;
         
-        menuViewControllers = [NSMutableArray new];
+       authCodeViewControllers = [NSMutableArray new];
         for(NSString *key in authCodes) {
             AuthCodeViewController *viewController = [[AuthCodeViewController alloc] initWithNibName:@"AuthCodeView" bundle:nil];
-            [viewController loadView];
+            [viewController view];
             [viewController setDisplayName:key code:authCodes[key]];
+            [viewController setRemoveMenu:removeMenuOpen];
+            
             NSMenuItem *menuItem = [[NSMenuItem alloc] init];
             if(first) {
                 [menuItem setTag:FIRST_CODE];
                 first = NO;
             }
             [menuItem setView:[viewController view]];
-            [menuViewControllers addObject:viewController];
+            [authCodeViewControllers addObject:viewController];
             [menu addItem:menuItem];
         }
         codeMenuNeedsRefresh = NO;
@@ -114,10 +127,13 @@ MenuViewController *menuViewController;
         
         int j = 0;
         for(NSString *key in authCodes) {
-            [menuViewControllers[j++] setDisplayName:key code:authCodes[key]];
+            [authCodeViewControllers[j] setRemoveMenu:removeMenuOpen];
+            [authCodeViewControllers[j] setDisplayName:key code:authCodes[key]];
+            j++;
         }
         for(NSInteger i = [menu indexOfItemWithTag:FIRST_CODE]; i < [items count]; i++){
             [menu itemChanged:items[j]];
+            
         }
     }
     
@@ -143,7 +159,7 @@ MenuViewController *menuViewController;
  the NSEventTrackingRunLoopMode is necessary because having the menu open blocks the main thread.
  */
 -(void)openMenu:(id)sender{
-    NSLog(@"%@", @"openMenu");
+    removeMenuOpen = NO;
     [self setStatusBarMenu:nil];
     NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(setStatusBarMenu:) userInfo:nil repeats:YES];
@@ -163,6 +179,11 @@ MenuViewController *menuViewController;
     [addKeyController window];
     [[addKeyController window] makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
+}
+
+-(void)removeToggled:(id)sender {
+    removeMenuOpen = YES;
+    [self setStatusBarMenu:nil];
 }
 
 
@@ -203,6 +224,7 @@ MenuViewController *menuViewController;
     [_keyStorage removeKey:name];
     [self updateRemoveKeyNames];
     codeMenuNeedsRefresh = YES;
+    [self setStatusBarMenu:nil];
 }
 
 -(void)addMenuToggled:(NSNotification *) notification{

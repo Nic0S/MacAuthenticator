@@ -18,13 +18,12 @@
     [super viewDidLoad];
     // Do view setup here.
 }
-
 -(IBAction)addPressed:(id)sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"AddPressed" object:nil userInfo:nil];
 }
 
 -(IBAction)removePressed:(id)sender{
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RemovePressed" object:nil userInfo:nil];
 }
 
 @end

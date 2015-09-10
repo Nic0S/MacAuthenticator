@@ -10,7 +10,9 @@
 #import <Foundation/Foundation.h>
 #import "AuthCodeMenuItemView.h"
 
-@implementation AuthCodeMenuItemView
+@implementation AuthCodeMenuItemView{
+    BOOL removing;
+}
 
 - (void)drawRect:(NSRect)rect {
     
@@ -25,6 +27,21 @@
         copyButton.hidden = NO;
     } else {
         copyButton.hidden = YES;
+        if(removing){
+            [copyButton setTitle:@"✘"];
+        } else {
+            [copyButton setTitle:@"Copy"];
+        }
+    }
+}
+
+-(void)setRemoving:(BOOL)r{
+    NSButton *copyButton = [self viewWithTag:2];
+    
+    removing = r;
+    if(removing){
+        [copyButton setTitle:@"✘"];
+    } else {
         [copyButton setTitle:@"Copy"];
     }
 }

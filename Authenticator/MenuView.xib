@@ -6,8 +6,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MenuViewController">
             <connections>
-                <outlet property="addButton" destination="1Ax-rY-9UB" id="KlB-H3-OHd"/>
-                <outlet property="removeButton" destination="lHD-Lj-I42" id="Ewd-nh-GNi"/>
+                <outlet property="addButton" destination="1Ax-rY-9UB" id="Ztl-XY-hI1"/>
+                <outlet property="removeButton" destination="lHD-Lj-I42" id="eaK-cy-hAz"/>
                 <outlet property="view" destination="WfE-UO-dWv" id="00H-1d-bcE"/>
             </connections>
         </customObject>

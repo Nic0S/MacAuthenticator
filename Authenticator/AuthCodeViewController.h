@@ -10,6 +10,7 @@
 #define Authenticator_AuthCodeViewController_h
 
 #import <Cocoa/Cocoa.h>
+#import "AuthCodeMenuItemView.h"
 
 @interface AuthCodeViewController : NSViewController {
 @private
@@ -18,9 +19,13 @@
     IBOutlet NSButton *copyButton;
 }
 
+@property (atomic, strong) IBOutlet AuthCodeMenuItemView *view;
+
 -(void) setDisplayName:(NSString*)name code:(NSString*)code;
 
--(IBAction)copyButton:(id)sender;
+-(IBAction)buttonPressed:(id)sender;
+
+-(void)setRemoveMenu:(BOOL)removeOpen;
 
 @end
 
