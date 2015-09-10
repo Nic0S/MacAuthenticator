@@ -17,6 +17,9 @@
         [keyBox setStringValue:clipboard];
     }
     
+    [keyBox setDelegate:self];
+    [nameBox setDelegate:self];
+    
 }
 
 - (IBAction) addKeyButtonPressed:(id)sender{
@@ -30,5 +33,14 @@
     [self.window close];
 }
 
+-(void)controlTextDidEndEditing:(NSNotification *)notification {
+    
+    int action = [[[notification userInfo] objectForKey:@"NSTextMovement"] intValue];
+    
+    if ( action == NSReturnTextMovement )
+    {
+        [self addKeyButtonPressed:self];
+    }
+}
 
 @end
