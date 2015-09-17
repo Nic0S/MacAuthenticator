@@ -175,8 +175,11 @@
     if(addKeyController == nil || ![[addKeyController window] isVisible]){
         addKeyController = [[AddKeyController alloc] initWithWindowNibName:@"AddKeyWindow"];
     }
+    NSRect frame = [[addKeyController window] frame];
+    frame.origin.x = NSMaxX([[NSScreen mainScreen] visibleFrame]) - frame.size.width;
+    frame.origin.y = NSMaxY([[NSScreen mainScreen] visibleFrame]) - frame.size.height;
+    [[addKeyController window] setFrame:frame display:NO];
     [addKeyController showWindow:self];
-    [addKeyController window];
     [[addKeyController window] makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
 }
