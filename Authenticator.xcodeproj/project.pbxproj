@@ -18,6 +18,8 @@
 		223E06411B910D9B000A0300 /* TimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223E06401B910D9B000A0300 /* TimeView.xib */; };
 		223E06441B910E84000A0300 /* TimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223E06431B910E84000A0300 /* TimeViewController.m */; };
 		2243E3D71B0974E300CB9630 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2243E3D61B0974E300CB9630 /* icon.png */; };
+		224600DF1BAB3B700081C136 /* DoneRemovingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224600DE1BAB3B700081C136 /* DoneRemovingView.xib */; };
+		224600E31BAB3BC70081C136 /* DoneRemovingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224600E21BAB3BC70081C136 /* DoneRemovingViewController.m */; };
 		225035EB1B7EAFE000EDC45B /* libTOTPLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 225035EA1B7EAFAB00EDC45B /* libTOTPLib.a */; };
 		225035F71B7EB2E500EDC45B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 225035EF1B7EB1F000EDC45B /* libz.dylib */; };
 		225035F81B7EB2ED00EDC45B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 225035F11B7EB22100EDC45B /* libsqlite3.dylib */; };
@@ -69,6 +71,9 @@
 		223E06431B910E84000A0300 /* TimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeViewController.m; sourceTree = "<group>"; };
 		223E06451B910E8E000A0300 /* TimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeViewController.h; sourceTree = "<group>"; };
 		2243E3D61B0974E300CB9630 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		224600DE1BAB3B700081C136 /* DoneRemovingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoneRemovingView.xib; sourceTree = "<group>"; };
+		224600E21BAB3BC70081C136 /* DoneRemovingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoneRemovingViewController.m; sourceTree = "<group>"; };
+		224600E41BAB3BCF0081C136 /* DoneRemovingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoneRemovingViewController.h; sourceTree = "<group>"; };
 		225035E51B7EAFAB00EDC45B /* TOTPLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TOTPLib.xcodeproj; path = ../TOTPLib/TOTPLib.xcodeproj; sourceTree = "<group>"; };
 		225035EF1B7EB1F000EDC45B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		225035F11B7EB22100EDC45B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -149,6 +154,7 @@
 				22221C5C1ADE0E730013E482 /* Images.xcassets */,
 				225133551AEDD1B200144716 /* KeyStorage.h */,
 				225133561AEDD1B200144716 /* KeyStorage.m */,
+				224600DE1BAB3B700081C136 /* DoneRemovingView.xib */,
 				22EEB4591B13D9CF00DB23B2 /* AddKeyWindow.xib */,
 				22F92A591B1513D30076C49E /* RemoveKeyWindow.xib */,
 				220B06EE1B8AAFD900B2E009 /* AuthCodeView.xib */,
@@ -206,6 +212,8 @@
 		226D7E951B573FEF008617F3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				224600E21BAB3BC70081C136 /* DoneRemovingViewController.m */,
+				224600E41BAB3BCF0081C136 /* DoneRemovingViewController.h */,
 				22EEB45E1B13F2DF00DB23B2 /* AddKeyController.h */,
 				22EEB45F1B13F2DF00DB23B2 /* AddKeyController.m */,
 				22F92A5B1B1514900076C49E /* RemoveKeyController.h */,
@@ -323,6 +331,7 @@
 				227C651E1B925B0900ED27D1 /* MenuView.xib in Resources */,
 				2243E3D71B0974E300CB9630 /* icon.png in Resources */,
 				22EEB45A1B13D9CF00DB23B2 /* AddKeyWindow.xib in Resources */,
+				224600DF1BAB3B700081C136 /* DoneRemovingView.xib in Resources */,
 				22F92A5A1B1513D30076C49E /* RemoveKeyWindow.xib in Resources */,
 				220B06EF1B8AAFD900B2E009 /* AuthCodeView.xib in Resources */,
 			);
@@ -345,6 +354,7 @@
 				220B06F11B8AB7B500B2E009 /* AuthCodeViewController.m in Sources */,
 				222EB81F1B5C817B009E02FB /* NSData+Crypto.m in Sources */,
 				22EEB4601B13F2DF00DB23B2 /* AddKeyController.m in Sources */,
+				224600E31BAB3BC70081C136 /* DoneRemovingViewController.m in Sources */,
 				226D7E971B5743BB008617F3 /* Utils.m in Sources */,
 				225133571AEDD1B200144716 /* KeyStorage.m in Sources */,
 				22221C581ADE0E730013E482 /* main.m in Sources */,

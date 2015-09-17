@@ -41,7 +41,8 @@
     removing = r;
     if(removing){
         [copyButton setTitle:@"✘"];
-    } else {
+    } else if(![[copyButton title] isEqualToString:@"✔︎"]){
+        NSLog(@"set to copy");
         [copyButton setTitle:@"Copy"];
     }
 }

@@ -17,6 +17,7 @@
     NSInteger TIME;
     NSInteger FIRST_CODE;
     NSInteger ADD_MENU;
+    NSInteger DONE_REMOVING;
     
     NSMenu *menu;
     NSTimer *timer;
@@ -29,6 +30,8 @@
     AddKeyController *addKeyController;
     TimeViewController *timeViewController;
     MenuViewController *menuViewController;
+    DoneRemovingViewController *doneRemovingViewController;
+    NSMenuItem *doneRemovingItem;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -39,6 +42,7 @@
     TIME = 343;
     FIRST_CODE = 344;
     ADD_MENU = 345;
+    DONE_REMOVING = 346;
     menu = nil;
     authCodeViewControllers= nil;
     
@@ -54,7 +58,6 @@
     _statusItem.highlightMode = YES;
     menu = [[NSMenu alloc] init];
     menuViewController = [[MenuViewController alloc] initWithNibName:@"MenuView" bundle:nil];
-    [menuViewController loadView];
     NSMenuItem *menuItem = [[NSMenuItem alloc] init];
     [menuItem setView:[menuViewController view]];
     [menu addItem:menuItem];
@@ -70,6 +73,11 @@
     
     [menu addItem:[NSMenuItem separatorItem]];
     [menu setAutoenablesItems:NO];
+    
+    doneRemovingViewController = [[DoneRemovingViewController alloc] initWithNibName:@"DoneRemovingView" bundle:nil];
+    doneRemovingItem = [[NSMenuItem alloc] init];
+    [doneRemovingItem setView:[doneRemovingViewController view]];
+    [doneRemovingItem setTag:DONE_REMOVING];
     [_statusItem setAction:@selector(openMenu:)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addKey:) name:@"KeyAddedNotification" object:nil];
@@ -77,6 +85,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openAddKeyWindow:) name:@"AddPressed" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeToggled:) name:@"RemovePressed" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doneRemoving:) name:@"DoneRemovingNotification" object:nil];
 }
 
 /*
@@ -105,7 +114,7 @@
         
         BOOL first = YES;
         
-       authCodeViewControllers = [NSMutableArray new];
+        authCodeViewControllers = [NSMutableArray new];
         for(NSString *key in authCodes) {
             AuthCodeViewController *viewController = [[AuthCodeViewController alloc] initWithNibName:@"AuthCodeView" bundle:nil];
             [viewController view];
@@ -137,9 +146,12 @@
         }
     }
     
-    //NSDictionary* items = [Utils formatMenuItems:authCodes];
-    
-    
+    NSMenuItem *doneItem = [menu itemWithTag:DONE_REMOVING];
+    if(doneItem == nil && removeMenuOpen){
+        [menu addItem:doneRemovingItem];
+    } else if(doneItem != nil && !removeMenuOpen){
+        [menu removeItem:doneItem];
+    }
 }
 
 
@@ -189,6 +201,10 @@
     [self setStatusBarMenu:nil];
 }
 
+-(void)doneRemoving:(id)sender {
+    removeMenuOpen = NO;
+    [self setStatusBarMenu:nil];
+}
 
 /*
  Creates an instance of the "Remove Key" window and shows it

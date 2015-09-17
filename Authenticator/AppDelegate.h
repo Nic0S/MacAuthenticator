@@ -14,6 +14,7 @@
 #import "TimeViewController.h"
 #import "MenuViewController.h"
 #import "AddKeyController.h"
+#import "DoneRemovingViewController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
