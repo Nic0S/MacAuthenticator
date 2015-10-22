@@ -156,6 +156,7 @@
 
 
 -(void)menuItemClicked:(NSNotification *)notification{
+    [menu cancelTracking];
     NSArray* ar = [NSArray arrayWithObject:@"_keyEquivalent"];
     NSString* selectedCode = [notification dictionaryWithValuesForKeys:ar][@"_keyEquivalent"];
     if(selectedCode != nil){
