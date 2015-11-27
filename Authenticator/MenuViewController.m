@@ -26,4 +26,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RemovePressed" object:nil userInfo:nil];
 }
 
+-(IBAction)sourcePressed:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/Nic0S/MacAuthenticator"]];
+}
+
 @end
