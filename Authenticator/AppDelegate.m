@@ -201,6 +201,7 @@
     [addKeyController showWindow:self];
     [[addKeyController window] makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:YES];
+    [menu cancelTracking];
 }
 
 -(void)removeToggled:(id)sender {
