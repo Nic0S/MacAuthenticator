@@ -24,6 +24,8 @@
 		225035F71B7EB2E500EDC45B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 225035EF1B7EB1F000EDC45B /* libz.dylib */; };
 		225035F81B7EB2ED00EDC45B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 225035F11B7EB22100EDC45B /* libsqlite3.dylib */; };
 		225133571AEDD1B200144716 /* KeyStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 225133561AEDD1B200144716 /* KeyStorage.m */; };
+		2252442A1C091177007B578F /* icon_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 225244281C091177007B578F /* icon_white.png */; };
+		2252442B1C091177007B578F /* icon_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 225244291C091177007B578F /* icon_black.png */; };
 		226D7E971B5743BB008617F3 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D7E961B5743BB008617F3 /* Utils.m */; };
 		227C651E1B925B0900ED27D1 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227C651D1B925B0900ED27D1 /* MenuView.xib */; };
 		227C65211B925B9000ED27D1 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C65201B925B9000ED27D1 /* MenuViewController.m */; };
@@ -79,6 +81,8 @@
 		225035F11B7EB22100EDC45B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		225133551AEDD1B200144716 /* KeyStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyStorage.h; sourceTree = "<group>"; };
 		225133561AEDD1B200144716 /* KeyStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyStorage.m; sourceTree = "<group>"; };
+		225244281C091177007B578F /* icon_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_white.png; sourceTree = "<group>"; };
+		225244291C091177007B578F /* icon_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_black.png; sourceTree = "<group>"; };
 		226D7E961B5743BB008617F3 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		226D7E981B5743C7008617F3 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		227C651D1B925B0900ED27D1 /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				2243E3D61B0974E300CB9630 /* icon.png */,
+				225244281C091177007B578F /* icon_white.png */,
+				225244291C091177007B578F /* icon_black.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -328,9 +334,11 @@
 			files = (
 				22221C5D1ADE0E730013E482 /* Images.xcassets in Resources */,
 				223E06411B910D9B000A0300 /* TimeView.xib in Resources */,
+				2252442B1C091177007B578F /* icon_black.png in Resources */,
 				227C651E1B925B0900ED27D1 /* MenuView.xib in Resources */,
 				2243E3D71B0974E300CB9630 /* icon.png in Resources */,
 				22EEB45A1B13D9CF00DB23B2 /* AddKeyWindow.xib in Resources */,
+				2252442A1C091177007B578F /* icon_white.png in Resources */,
 				224600DF1BAB3B700081C136 /* DoneRemovingView.xib in Resources */,
 				22F92A5A1B1513D30076C49E /* RemoveKeyWindow.xib in Resources */,
 				220B06EF1B8AAFD900B2E009 /* AuthCodeView.xib in Resources */,

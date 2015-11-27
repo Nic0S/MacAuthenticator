@@ -49,10 +49,16 @@
     _keyStorage = [[KeyStorage alloc] init];
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     _statusItem.title = @"";
-    _statusItem.image = [NSImage imageNamed:@"icon.png"];
     
-    //highlighted image
-    _statusItem.alternateImage = [NSImage imageNamed:@"icon.png"];
+    // Choose icon images based on the current OS X theme
+    NSString *osxMode = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
+    if ([osxMode isEqualToString:@"Dark"]) {
+        _statusItem.image = [NSImage imageNamed:@"icon_white.png"];
+        _statusItem.alternateImage = [NSImage imageNamed:@"icon_black.png"];
+    } else {
+        _statusItem.image = [NSImage imageNamed:@"icon_black.png"];
+        _statusItem.alternateImage = [NSImage imageNamed:@"icon_white.png"];
+    }
     
     // The image gets a blue background when the item is selected
     _statusItem.highlightMode = YES;
