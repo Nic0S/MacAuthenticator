@@ -12,8 +12,6 @@
 		22221C561ADE0E730013E482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22221C551ADE0E730013E482 /* AppDelegate.m */; };
 		22221C581ADE0E730013E482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22221C571ADE0E730013E482 /* main.m */; };
 		22221C5D1ADE0E730013E482 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22221C5C1ADE0E730013E482 /* Images.xcassets */; };
-		22221C6C1ADE0E730013E482 /* AuthenticatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22221C6B1ADE0E730013E482 /* AuthenticatorTests.m */; };
-		222EB81F1B5C817B009E02FB /* NSData+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 222EB81E1B5C817B009E02FB /* NSData+Crypto.m */; };
 		223E063C1B8E9D22000A0300 /* AuthCodeMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 223E063B1B8E9D22000A0300 /* AuthCodeMenuItemView.m */; };
 		223E06411B910D9B000A0300 /* TimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223E06401B910D9B000A0300 /* TimeView.xib */; };
 		223E06441B910E84000A0300 /* TimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223E06431B910E84000A0300 /* TimeViewController.m */; };
@@ -64,9 +62,6 @@
 		22221C5C1ADE0E730013E482 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		22221C651ADE0E730013E482 /* AuthenticatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthenticatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22221C6A1ADE0E730013E482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22221C6B1ADE0E730013E482 /* AuthenticatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthenticatorTests.m; sourceTree = "<group>"; };
-		222EB81D1B5C817B009E02FB /* NSData+Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Crypto.h"; sourceTree = "<group>"; };
-		222EB81E1B5C817B009E02FB /* NSData+Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Crypto.m"; sourceTree = "<group>"; };
 		223E063B1B8E9D22000A0300 /* AuthCodeMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthCodeMenuItemView.m; sourceTree = "<group>"; };
 		223E063E1B8E9D31000A0300 /* AuthCodeMenuItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthCodeMenuItemView.h; sourceTree = "<group>"; };
 		223E06401B910D9B000A0300 /* TimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeView.xib; sourceTree = "<group>"; };
@@ -120,8 +115,6 @@
 		2200737A1B653E340060C38E /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				222EB81D1B5C817B009E02FB /* NSData+Crypto.h */,
-				222EB81E1B5C817B009E02FB /* NSData+Crypto.m */,
 			);
 			name = Crypto;
 			sourceTree = "<group>";
@@ -183,7 +176,6 @@
 		22221C681ADE0E730013E482 /* AuthenticatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				22221C6B1ADE0E730013E482 /* AuthenticatorTests.m */,
 				22221C691ADE0E730013E482 /* Supporting Files */,
 			);
 			path = AuthenticatorTests;
@@ -360,7 +352,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				220B06F11B8AB7B500B2E009 /* AuthCodeViewController.m in Sources */,
-				222EB81F1B5C817B009E02FB /* NSData+Crypto.m in Sources */,
 				22EEB4601B13F2DF00DB23B2 /* AddKeyController.m in Sources */,
 				224600E31BAB3BC70081C136 /* DoneRemovingViewController.m in Sources */,
 				226D7E971B5743BB008617F3 /* Utils.m in Sources */,
@@ -378,7 +369,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22221C6C1ADE0E730013E482 /* AuthenticatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
