@@ -76,15 +76,13 @@
     }
 }
 
-- (NSString *) pathForDataFile
-{
+- (NSString *) pathForDataFile {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     NSString *folder = @"~/Library/Application Support/MacAuthenticator/";
     folder = [folder stringByExpandingTildeInPath];
     
-    if ([fileManager fileExistsAtPath: folder] == NO)
-    {
+    if ([fileManager fileExistsAtPath: folder] == NO) {
         [fileManager createDirectoryAtPath:folder withIntermediateDirectories:YES attributes:nil error:nil];
     }
     

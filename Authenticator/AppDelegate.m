@@ -53,9 +53,11 @@
     // Choose icon images based on the current OS X theme
     NSString *osxMode = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
     if ([osxMode isEqualToString:@"Dark"]) {
+        // OS X in dark mode
         _statusItem.image = [NSImage imageNamed:@"icon_white.png"];
         _statusItem.alternateImage = [NSImage imageNamed:@"icon_black.png"];
     } else {
+        // OS X in regular light mode
         _statusItem.image = [NSImage imageNamed:@"icon_black.png"];
         _statusItem.alternateImage = [NSImage imageNamed:@"icon_white.png"];
     }
@@ -70,6 +72,7 @@
     
     [menu addItem:[NSMenuItem separatorItem]];
     
+    // Add menu item to display time until passwords expire
     timeViewController = [[TimeViewController alloc] initWithNibName:@"TimeView" bundle:nil];
     [timeViewController loadView];
     NSMenuItem *timeItem = [[NSMenuItem alloc] init];
@@ -80,6 +83,7 @@
     [menu addItem:[NSMenuItem separatorItem]];
     [menu setAutoenablesItems:NO];
     
+    // Add the menu item with the "done removing" button
     doneRemovingViewController = [[DoneRemovingViewController alloc] initWithNibName:@"DoneRemovingView" bundle:nil];
     doneRemovingItem = [[NSMenuItem alloc] init];
     [doneRemovingItem setView:[doneRemovingViewController view]];
@@ -88,28 +92,26 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addKey:) name:@"KeyAddedNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeKey:) name:@"KeyRemovedNotification" object:nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openAddKeyWindow:) name:@"AddPressed" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeToggled:) name:@"RemovePressed" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doneRemoving:) name:@"DoneRemovingNotification" object:nil];
 }
 
 /*
- refreshes the the data in the statusbar menu. Called once per second while status menu is open.
+ Refreshes the the data in the statusbar menu. Called once per second while status menu is open.
  */
 -(void)setStatusBarMenu:(id)sender {
     NSLog(@"%@", @"update");
-    //NSDictionary *authCodes = [_keyStorage getAllAuthCodes];
     
     NSDate* now = [NSDate date];
     NSCalendar *gCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dateComponents = [gCalendar components:(NSSecondCalendarUnit) fromDate:now];
     NSInteger second = 30 - [dateComponents second] % 30;
-    //[menu addItemWithTitle:[NSString stringWithFormat:@"Time:\t\t%ld", (long)second] action:nil keyEquivalent:@""];
-    //[[menu itemWithTag:TIME] setTitle:[NSString stringWithFormat:@"Time:\t\t\t\t\t\t\t%ld", (long)second]];
     [timeViewController setTime:[NSString stringWithFormat:@"%ld", (long)second]];
      
     NSDictionary *authCodes = [_keyStorage getAllAuthCodes];
+    
+    // Generate new one time passwords
     if(codeMenuNeedsRefresh){
         NSInteger codeIndex = [menu indexOfItemWithTag:FIRST_CODE];
         if(codeIndex > -1){
@@ -159,7 +161,6 @@
         [menu removeItem:doneItem];
     }
 }
-
 
 -(void)menuItemClicked:(NSNotification *)notification{
     [menu cancelTracking];
@@ -246,6 +247,10 @@
     codeMenuNeedsRefresh = YES;
 }
 
+/*
+ Called when the "remove" button next to a code is pressed. Removes that key from the 
+ display and from the keystore.
+ */
 -(void)removeKey:(NSNotification *) notification{
     NSString *name = notification.userInfo[@"name"];
     [_keyStorage removeKey:name];
